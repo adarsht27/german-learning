@@ -1,0 +1,539 @@
+/* ============================================================
+   German Learning KB — Shared Stylesheet
+   Aesthetic: Refined Academic / Scholarly Notebook
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ── CSS Custom Properties ── */
+:root {
+  --ink:          #1a2e3b;
+  --ink-soft:     #4a5e6b;
+  --page:         #faf9f6;
+  --page-warm:    #f3f0ea;
+  --primary:      #1e4976;
+  --primary-mid:  #2a6099;
+  --primary-light:#e8f1fa;
+  --accent:       #c47d0e;
+  --accent-light: #fdf3de;
+  --accent-bright:#e8960f;
+  --sage:         #2e6b48;
+  --sage-light:   #eaf3ed;
+  --border:       #d4ccbb;
+  --border-light: #e8e3d8;
+  --warn:         #8b2c0f;
+  --warn-light:   #fef1ec;
+  --radius:       6px;
+  --radius-lg:    10px;
+  --shadow-sm:    0 1px 3px rgba(26,46,59,.08);
+  --shadow-md:    0 4px 16px rgba(26,46,59,.10);
+  --font-head:    'Playfair Display', Georgia, serif;
+  --font-body:    'Source Serif 4', Georgia, serif;
+  --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+  --max-width:    860px;
+  --sidebar:      240px;
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 17px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--ink);
+  background-color: var(--page);
+  line-height: 1.75;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Page background texture ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse 70% 50% at 90% 10%, rgba(30,73,118,.04) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 10% 90%, rgba(196,125,14,.03) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Site Header ── */
+.site-header {
+  background: var(--primary);
+  color: #fff;
+  padding: .75rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 3px solid var(--accent);
+  position: relative;
+  z-index: 10;
+}
+
+.site-header .site-title {
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: #fff;
+  text-decoration: none;
+}
+
+.site-header .site-subtitle {
+  font-size: .8rem;
+  opacity: .7;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* ── Breadcrumb ── */
+.breadcrumb {
+  background: var(--page-warm);
+  border-bottom: 1px solid var(--border-light);
+  padding: .6rem 2rem;
+  font-size: .83rem;
+  color: var(--ink-soft);
+  position: relative;
+  z-index: 10;
+  letter-spacing: .01em;
+}
+
+.breadcrumb a {
+  color: var(--primary-mid);
+  text-decoration: none;
+  transition: color .15s;
+}
+.breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
+
+.breadcrumb .sep {
+  margin: 0 .5rem;
+  opacity: .45;
+  font-style: normal;
+}
+
+.breadcrumb .current {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ── Layout ── */
+.page-body {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2.5rem 2rem 4rem;
+  width: 100%;
+  flex: 1;
+}
+
+/* ── Topic Header ── */
+.topic-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid var(--border-light);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.topic-header h1 {
+  font-family: var(--font-head);
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--primary);
+  flex: 1;
+}
+
+.topic-header h1 .german {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: var(--ink-soft);
+  display: block;
+  margin-top: .15rem;
+}
+
+/* ── CEFR Badge ── */
+.cefr-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: .3rem .75rem;
+  border-radius: 99px;
+  font-size: .75rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: .4rem;
+}
+
+.cefr-badge.a1 { background: #dff0e0; color: #1e6b35; border: 1px solid #b2d9bb; }
+.cefr-badge.a2 { background: #e0edff; color: #1a4a8a; border: 1px solid #a8c8f0; }
+.cefr-badge.b1 { background: #fef3dc; color: #7a4a00; border: 1px solid #f0d490; }
+.cefr-badge.a1-a2 { background: linear-gradient(90deg,#dff0e0,#e0edff); color: #1a4a6a; border: 1px solid #aacce0; }
+
+/* ── Section Headings ── */
+.page-body h2 {
+  font-family: var(--font-head);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 2rem 0 .9rem;
+  padding-bottom: .35rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.page-body h3 {
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 1.6rem 0 .6rem;
+}
+
+.page-body p { margin-bottom: .8rem; }
+
+.page-body ul, .page-body ol {
+  padding-left: 1.5rem;
+  margin-bottom: .8rem;
+}
+
+.page-body li { margin-bottom: .3rem; }
+
+a { color: var(--primary-mid); }
+a:hover { color: var(--accent); }
+
+/* ── Key Points Box ── */
+.key-points {
+  background: var(--primary-light);
+  border: 1px solid #b8d0ea;
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin: 0 0 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.key-points h2 {
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 .75rem;
+  padding: 0;
+  border: none;
+  letter-spacing: .01em;
+}
+
+.key-points ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: .4rem;
+}
+
+.key-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+  font-size: .95rem;
+  margin: 0;
+}
+
+.key-points li::before {
+  content: '→';
+  color: var(--primary);
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-top: .05em;
+}
+
+/* ── Example Box ── */
+.example-box {
+  background: var(--sage-light);
+  border: 1px solid #b8d8c4;
+  border-left: 4px solid var(--sage);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin: .75rem 0 1rem;
+  font-size: .95rem;
+}
+
+.example-box p { margin-bottom: .4rem; }
+.example-box p:last-child { margin-bottom: 0; }
+
+.german {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.translation {
+  color: var(--ink-soft);
+  font-size: .88em;
+}
+
+.example-box .label {
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--sage);
+  font-weight: 600;
+  font-family: var(--font-mono);
+  margin-bottom: .5rem;
+  display: block;
+}
+
+/* ── Tip Box ── */
+.tip-box {
+  background: var(--accent-light);
+  border: 1px solid #e8d49a;
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: .85rem 1.2rem;
+  margin: .75rem 0 1rem;
+  font-size: .92rem;
+  color: var(--ink);
+}
+
+/* ── Warning Box ── */
+.warn-box {
+  background: var(--warn-light);
+  border: 1px solid #f0bfae;
+  border-left: 4px solid var(--warn);
+  border-radius: var(--radius);
+  padding: .85rem 1.2rem;
+  margin: .75rem 0 1rem;
+  font-size: .92rem;
+}
+
+/* ── Grammar Tables ── */
+.grammar-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: .75rem 0 1.5rem;
+  font-size: .92rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.grammar-table thead {
+  background: var(--primary);
+  color: #fff;
+}
+
+.grammar-table th {
+  padding: .65rem 1rem;
+  text-align: left;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: .85rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.grammar-table td {
+  padding: .6rem 1rem;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+}
+
+.grammar-table tbody tr:last-child td { border-bottom: none; }
+
+.grammar-table tbody tr:nth-child(even) {
+  background: var(--page-warm);
+}
+
+.grammar-table tbody tr:hover {
+  background: var(--primary-light);
+}
+
+.grammar-table .highlight-col {
+  background: var(--accent-light);
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.grammar-table .changed {
+  color: var(--warn);
+  font-weight: 600;
+}
+
+/* ── Connected Topics Section ── */
+.connected-topics {
+  margin: 3rem 0 2rem;
+  padding: 1.5rem;
+  background: var(--page-warm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.connected-topics h2 {
+  font-size: 1.05rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  border: none;
+  color: var(--ink);
+}
+
+.connected-topics ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+
+.connected-topics li {
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+  font-size: .93rem;
+  margin: 0;
+  padding: .6rem .75rem;
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  transition: border-color .15s, box-shadow .15s;
+}
+
+.connected-topics li:hover {
+  border-color: var(--primary-mid);
+  box-shadow: var(--shadow-sm);
+}
+
+.connected-topics li::before {
+  content: '⟶';
+  color: var(--primary-mid);
+  flex-shrink: 0;
+  font-size: .85em;
+  margin-top: .1em;
+}
+
+.connected-topics a {
+  font-weight: 600;
+  text-decoration: none;
+}
+.connected-topics a:hover { text-decoration: underline; }
+
+.connected-topics .link-desc {
+  color: var(--ink-soft);
+  font-size: .87em;
+  display: block;
+}
+
+/* ── Free Resources Section ── */
+.free-resources {
+  margin: 2rem 0;
+}
+
+.free-resources h2 {
+  font-size: 1.05rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  border: none;
+  color: var(--ink);
+}
+
+.free-resources ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.free-resources li {
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+  font-size: .92rem;
+  margin: 0;
+}
+
+.free-resources li::before {
+  content: '📖';
+  flex-shrink: 0;
+  font-size: .9em;
+}
+
+.free-resources .res-desc {
+  color: var(--ink-soft);
+  font-size: .87em;
+}
+
+/* ── Footer ── */
+.site-footer {
+  background: var(--page-warm);
+  border-top: 1px solid var(--border);
+  padding: 1.25rem 2rem;
+  text-align: center;
+  font-size: .8rem;
+  color: var(--ink-soft);
+  position: relative;
+  z-index: 1;
+  letter-spacing: .03em;
+}
+
+/* ── Inline German word highlight ── */
+em.de {
+  font-style: italic;
+  color: var(--primary);
+  font-weight: 400;
+}
+
+/* ── Case color system (for inline labels) ── */
+.case-nom { color: #1a6b3a; font-weight: 600; }
+.case-acc { color: #1a4a8a; font-weight: 600; }
+.case-dat { color: #7a3a00; font-weight: 600; }
+.case-gen { color: #6a1a2a; font-weight: 600; }
+
+/* ── Scroll to top ── */
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .82rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding: .4rem .8rem;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  transition: all .15s;
+  float: right;
+  margin-top: 1rem;
+}
+.back-to-top:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  html { font-size: 15.5px; }
+  .page-body { padding: 1.75rem 1.25rem 3rem; }
+  .topic-header h1 { font-size: 1.7rem; }
+  .grammar-table { font-size: .83rem; }
+  .grammar-table th, .grammar-table td { padding: .5rem .7rem; }
+  .site-header { padding: .75rem 1.25rem; }
+  .breadcrumb { padding: .6rem 1.25rem; }
+}

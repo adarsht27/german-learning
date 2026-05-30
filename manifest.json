@@ -1,0 +1,10 @@
+{
+  "slug": "cases",
+  "file": "cases.html",
+  "title": "The Four German Cases",
+  "cefr": ["A1", "A2"],
+  "category": "grammar",
+  "tags": ["cases", "nominative", "accusative", "dative", "genitive", "articles", "prepositions"],
+  "connected": ["article-declension", "noun-gender", "verb-conjugation", "sentence-structure", "adjective-declension"],
+  "updated": "2026-05-30"
+}
