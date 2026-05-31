@@ -7,12 +7,14 @@
   <meta name="keywords" content="German noun gender, der die das, grammatical gender, Genus, masculine feminine neuter, German articles, A1, A2, gender rules, noun endings, German for beginners">
   <title>Noun Gender (Das Genus) | German Learning KB</title>
   <link rel="stylesheet" href="../assets/styles.css">
+  <script>if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark');}</script>
 </head>
 <body>
 
   <header class="site-header">
     <a href="../index.html" class="site-title">Deutschlernen KB</a>
     <span class="site-subtitle">Personal Grammar Reference</span>
+    <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" title="Switch to dark mode">🌙</button>
   </header>
 
   <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -366,6 +368,171 @@
       </ul>
     </section>
 
+    <!-- ══════════════════════════════════
+         EXERCISES
+    ══════════════════════════════════ -->
+    <section class="exercises" aria-label="Exercises">
+      <h2>✏️ Übungen (Exercises)</h2>
+      <p class="exercises-intro">These exercises follow <strong>Goethe-Zertifikat A2</strong> and <strong>TELC Deutsch A2</strong> formats. Knowing noun gender automatically becomes knowing the right article, pronoun, and adjective ending — drill it here.</p>
+
+      <!-- ── Exercise 1: Lückentext ── -->
+      <div class="exercise-block" id="ex1">
+        <div class="exercise-header">
+          <span class="exercise-num">Exercise 1</span>
+          <span class="exercise-type">Lückentext</span>
+          <span class="exercise-exam-tag">Goethe A2 · Leseverstehen style</span>
+        </div>
+        <p class="exercise-instruction">Fill in the correct <strong>nominative article</strong> (<em class="de">der / die / das</em>) for each noun. Use the gender patterns you've learned.</p>
+        <ol class="gap-fill-list">
+          <li><input class="gap-input" data-answer="der"> Lehrer erklärt die Übung. <span style="font-size:.85em;color:var(--ink-soft)">(ending -er = masc.)</span></li>
+          <li><input class="gap-input" data-answer="die"> Freiheit ist wichtig. <span style="font-size:.85em;color:var(--ink-soft)">(ending -heit = fem.)</span></li>
+          <li><input class="gap-input" data-answer="das"> Mädchen spielt draußen. <span style="font-size:.85em;color:var(--ink-soft)">(ending -chen = always neut.)</span></li>
+          <li><input class="gap-input" data-answer="die"> Universität liegt in Berlin. <span style="font-size:.85em;color:var(--ink-soft)">(ending -ität = fem.)</span></li>
+          <li><input class="gap-input" data-answer="das"> Instrument klingt schön. <span style="font-size:.85em;color:var(--ink-soft)">(ending -ment = neut.)</span></li>
+        </ol>
+        <div class="exercise-controls">
+          <button class="btn-check" onclick="checkGapFill('ex1')">Check</button>
+          <button class="btn-reset" onclick="resetGapFill('ex1')">Reset</button>
+        </div>
+        <div class="exercise-score"></div>
+      </div>
+
+      <!-- ── Exercise 2: Sprachbausteine ── -->
+      <div class="exercise-block" id="ex2">
+        <div class="exercise-header">
+          <span class="exercise-num">Exercise 2</span>
+          <span class="exercise-type">Sprachbausteine</span>
+          <span class="exercise-exam-tag">TELC A2 · Lesen Teil 5 style</span>
+        </div>
+        <p class="exercise-instruction">Choose the correct <strong>third-person pronoun</strong> to replace the underlined noun. Remember: pronouns follow grammatical gender, not natural gender.</p>
+        <p class="sb-text">
+          Der Tisch ist alt.
+          <span class="sb-label">1</span><select class="sb-select" data-answer="er">
+            <option value="">—</option>
+            <option value="er">Er</option>
+            <option value="sie">Sie</option>
+            <option value="es">Es</option>
+          </select>
+          steht im Wohnzimmer. Die Schule ist groß.
+          <span class="sb-label">2</span><select class="sb-select" data-answer="sie">
+            <option value="">—</option>
+            <option value="er">Er</option>
+            <option value="sie">Sie</option>
+            <option value="es">Es</option>
+          </select>
+          hat viele Schüler. Das Buch ist interessant.
+          <span class="sb-label">3</span><select class="sb-select" data-answer="es">
+            <option value="">—</option>
+            <option value="er">Er</option>
+            <option value="sie">Sie</option>
+            <option value="es">Es</option>
+          </select>
+          liegt auf dem Regal.
+        </p>
+        <p style="font-size:.83rem;color:var(--ink-soft);margin-top:.4rem">Hint: der Tisch → masc. → er · die Schule → fem. → sie · das Buch → neut. → es</p>
+        <div class="exercise-controls">
+          <button class="btn-check" onclick="checkSB('ex2')">Check</button>
+          <button class="btn-reset" onclick="resetSB('ex2')">Reset</button>
+        </div>
+        <div class="exercise-score"></div>
+      </div>
+
+      <!-- ── Exercise 3: Multiple Choice ── -->
+      <div class="exercise-block" id="ex3">
+        <div class="exercise-header">
+          <span class="exercise-num">Exercise 3</span>
+          <span class="exercise-type">Multiple Choice</span>
+          <span class="exercise-exam-tag">Goethe A2 · Grammatik style</span>
+        </div>
+        <p class="exercise-instruction">Select the correct article for each noun based on its <strong>ending pattern</strong>.</p>
+        <ul class="mc-list">
+          <li>
+            <p class="mc-sentence"><em class="de">___ Wohnung</em></p>
+            <div class="mc-options">
+              <button class="mc-btn" data-correct="false" data-hint="-ung nouns are always feminine." onclick="selectMC(this,'ex3',0)">der</button>
+              <button class="mc-btn" data-correct="true"  data-hint="Correct! All -ung nouns are feminine: die Wohnung, die Zeitung, die Hoffnung." onclick="selectMC(this,'ex3',0)">die</button>
+              <button class="mc-btn" data-correct="false" data-hint="-ung nouns are always feminine, not neuter." onclick="selectMC(this,'ex3',0)">das</button>
+            </div>
+            <div class="mc-feedback"></div>
+          </li>
+          <li>
+            <p class="mc-sentence"><em class="de">___ Frühling</em></p>
+            <div class="mc-options">
+              <button class="mc-btn" data-correct="true"  data-hint="Correct! -ling endings are masculine: der Frühling, der Lehrling." onclick="selectMC(this,'ex3',1)">der</button>
+              <button class="mc-btn" data-correct="false" data-hint="-ling nouns are masculine, not feminine." onclick="selectMC(this,'ex3',1)">die</button>
+              <button class="mc-btn" data-correct="false" data-hint="-ling nouns are masculine, not neuter." onclick="selectMC(this,'ex3',1)">das</button>
+            </div>
+            <div class="mc-feedback"></div>
+          </li>
+          <li>
+            <p class="mc-sentence"><em class="de">___ Ergebnis</em></p>
+            <div class="mc-options">
+              <button class="mc-btn" data-correct="false" data-hint="-nis nouns are usually neuter." onclick="selectMC(this,'ex3',2)">der</button>
+              <button class="mc-btn" data-correct="false" data-hint="-nis nouns are usually neuter. 'die Kenntnis' is a known exception, but 'Ergebnis' is neuter." onclick="selectMC(this,'ex3',2)">die</button>
+              <button class="mc-btn" data-correct="true"  data-hint="Correct! -nis nouns are usually neuter: das Ergebnis, das Zeugnis, das Bedürfnis." onclick="selectMC(this,'ex3',2)">das</button>
+            </div>
+            <div class="mc-feedback"></div>
+          </li>
+          <li>
+            <p class="mc-sentence"><em class="de">___ Freundschaft</em></p>
+            <div class="mc-options">
+              <button class="mc-btn" data-correct="false" data-hint="-schaft endings are always feminine." onclick="selectMC(this,'ex3',3)">der</button>
+              <button class="mc-btn" data-correct="true"  data-hint="Correct! All -schaft nouns are feminine: die Freundschaft, die Wirtschaft, die Mannschaft." onclick="selectMC(this,'ex3',3)">die</button>
+              <button class="mc-btn" data-correct="false" data-hint="-schaft endings are always feminine, not neuter." onclick="selectMC(this,'ex3',3)">das</button>
+            </div>
+            <div class="mc-feedback"></div>
+          </li>
+        </ul>
+        <div class="exercise-controls">
+          <button class="btn-check" onclick="checkMC('ex3')">Check</button>
+          <button class="btn-reset" onclick="resetMC('ex3')">Reset</button>
+        </div>
+        <div class="exercise-score"></div>
+      </div>
+
+      <!-- ── Exercise 4: Fehlerkorrektur ── -->
+      <div class="exercise-block" id="ex4">
+        <div class="exercise-header">
+          <span class="exercise-num">Exercise 4</span>
+          <span class="exercise-type">Fehlerkorrektur</span>
+          <span class="exercise-exam-tag">TELC A2 · Grammatik style</span>
+        </div>
+        <p class="exercise-instruction">Each sentence has a <strong>wrong article</strong> (in red). Type the correct article.</p>
+        <ul class="errcor-list">
+          <li>
+            <span class="errcor-sentence">Das ist <span class="wrong-art">der</span> Wohnung meiner Mutter.</span>
+            <span class="errcor-label">Correct →</span>
+            <input class="errcor-input" data-answer="die" placeholder="?">
+            <span class="item-feedback"></span>
+          </li>
+          <li>
+            <span class="errcor-sentence">Ich mag <span class="wrong-art">die</span> Instrument nicht.</span>
+            <span class="errcor-label">Correct →</span>
+            <input class="errcor-input" data-answer="das" placeholder="?">
+            <span class="item-feedback"></span>
+          </li>
+          <li>
+            <span class="errcor-sentence">Er kauft <span class="wrong-art">das</span> Freiheit nicht.</span>
+            <span class="errcor-label">Correct →</span>
+            <input class="errcor-input" data-answer="die" placeholder="?">
+            <span class="item-feedback"></span>
+          </li>
+          <li>
+            <span class="errcor-sentence">Wir haben <span class="wrong-art">der</span> Mädchen geholfen.</span>
+            <span class="errcor-label">Correct →</span>
+            <input class="errcor-input" data-answer="dem" placeholder="?">
+            <span class="item-feedback"></span>
+          </li>
+        </ul>
+        <div class="exercise-controls">
+          <button class="btn-check" onclick="checkErrCor('ex4')">Check</button>
+          <button class="btn-reset" onclick="resetErrCor('ex4')">Reset</button>
+        </div>
+        <div class="exercise-score"></div>
+      </div>
+
+    </section><!-- /exercises -->
+
     <a href="#" class="back-to-top" aria-label="Back to top">↑ Back to top</a>
 
   </main>
@@ -381,6 +548,7 @@
   </footer>
 
   <script src="../assets/nav.js" defer></script>
+  <script src="../assets/exercises.js" defer></script>
 
 </body>
 </html>

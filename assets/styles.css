@@ -555,7 +555,8 @@ em.de {
                               position: absolute; left: 0;
                               color: var(--accent, #2a6ab1); }
 .key-points ul li strong,
-.key-points ul li em   { display: inline !important; }
+.key-points ul li em,
+.key-points ul li span { display: inline !important; }
 
 
 /* ── EXERCISE SECTION ───────────────────────────────────────────
@@ -707,4 +708,220 @@ em.de {
 @media (max-width: 600px) {
   .mc-options           { flex-direction: column; }
   .errcor-list > li     { flex-direction: column; gap: .3rem; }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   VOCABULARY PAGES
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Vocab list ─────────────────────────────────────────────── */
+.vocab-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+}
+
+.vocab-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: baseline;
+  gap: .2rem .75rem;
+  padding: .7rem 1rem;
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--primary-mid);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: border-left-color .15s;
+}
+
+.vocab-item:hover { border-left-color: var(--accent); }
+
+.vocab-de {
+  font-weight: 600;
+  color: var(--primary);
+  font-size: .97rem;
+}
+
+.vocab-en {
+  color: var(--ink-soft);
+  font-size: .92rem;
+}
+
+.vocab-example {
+  grid-column: 1 / -1;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: .86em;
+  margin: .2rem 0 0;
+  line-height: 1.5;
+}
+
+/* ── Anki export button ─────────────────────────────────────── */
+.anki-export-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .45rem 1.1rem;
+  background: #2d3748;
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: .88rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background .15s;
+}
+.anki-export-btn:hover { background: #1a202c; color: #fff; }
+
+/* ── Dark mode overrides for vocab ─────────────────────────── */
+[data-theme="dark"] .vocab-item {
+  background: var(--bg-card);
+  border-color: var(--border);
+}
+[data-theme="dark"] .anki-export-btn { background: #4a5568; }
+[data-theme="dark"] .anki-export-btn:hover { background: #2d3748; }
+
+
+/* ══════════════════════════════════════════════════════════════
+   DARK MODE
+   Applied via [data-theme="dark"] on <html>.
+   Toggle button in .site-header; preference saved in localStorage.
+   ══════════════════════════════════════════════════════════════ */
+
+[data-theme="dark"] {
+  --ink:          #dde6ec;
+  --ink-soft:     #8aa4b4;
+  --page:         #111820;
+  --page-warm:    #161e28;
+  --primary:      #2a5a8a;
+  --primary-mid:  #5b9fd4;
+  --primary-light:#172338;
+  --accent:       #e8960f;
+  --accent-light: #2a1d08;
+  --accent-bright:#f0aa20;
+  --sage:         #4a9b6a;
+  --sage-light:   #0e1f16;
+  --border:       #253545;
+  --border-light: #1c2d3c;
+  --warn:         #e05830;
+  --warn-light:   #280f08;
+  --shadow-sm:    0 1px 3px rgba(0,0,0,.35);
+  --shadow-md:    0 4px 16px rgba(0,0,0,.45);
+  /* exercise card variables */
+  --bg-card:      #1a2535;
+  --bg-soft:      #1c2d3c;
+}
+
+/* ── Overrides for hardcoded colours ── */
+[data-theme="dark"] body {
+  background-color: var(--page);
+  color: var(--ink);
+}
+
+[data-theme="dark"] body::before {
+  background-image:
+    radial-gradient(ellipse 70% 50% at 90% 10%, rgba(42,90,138,.07) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 10% 90%, rgba(232,150,15,.04) 0%, transparent 70%);
+}
+
+/* Cards and white-background elements */
+[data-theme="dark"] .connected-topics li,
+[data-theme="dark"] .hub-card,
+[data-theme="dark"] .exercise-block { background: var(--bg-card); }
+
+[data-theme="dark"] .connected-topics {
+  background: var(--page-warm);
+  border-color: var(--border);
+}
+
+/* Tables */
+[data-theme="dark"] .grammar-table tbody tr:nth-child(even) {
+  background: var(--page-warm);
+}
+[data-theme="dark"] .grammar-table tbody tr:hover {
+  background: var(--primary-light);
+}
+
+/* Key points, example, tip, warn boxes */
+[data-theme="dark"] .key-points {
+  background: var(--primary-light);
+  border-color: var(--border);
+  border-left-color: var(--primary-mid);
+}
+[data-theme="dark"] .example-box {
+  background: var(--sage-light);
+  border-color: var(--border);
+  border-left-color: var(--sage);
+}
+[data-theme="dark"] .tip-box {
+  background: var(--accent-light);
+  border-color: var(--border);
+  border-left-color: var(--accent);
+}
+[data-theme="dark"] .warn-box {
+  background: var(--warn-light);
+  border-color: var(--border);
+  border-left-color: var(--warn);
+}
+
+/* Exercise inputs and selects */
+[data-theme="dark"] .gap-input,
+[data-theme="dark"] .errcor-input {
+  background: var(--page-warm);
+  color: var(--ink);
+  border-color: var(--border);
+}
+[data-theme="dark"] .sb-select {
+  background: var(--page-warm);
+  color: var(--ink);
+  border-color: var(--border);
+}
+[data-theme="dark"] .mc-btn {
+  background: var(--page-warm);
+  color: var(--ink);
+  border-color: var(--border);
+}
+[data-theme="dark"] .mc-btn:hover:not(:disabled) {
+  background: var(--primary-light);
+  border-color: var(--primary-mid);
+}
+[data-theme="dark"] .sb-text { background: var(--bg-soft); }
+
+/* Breadcrumb */
+[data-theme="dark"] .breadcrumb {
+  background: var(--page-warm);
+  border-color: var(--border);
+}
+
+/* Footer */
+[data-theme="dark"] .site-footer {
+  background: var(--page-warm);
+  border-color: var(--border);
+}
+
+/* ── Theme toggle button ── */
+.theme-toggle {
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.28);
+  color: #fff;
+  border-radius: 99px;
+  padding: .2rem .65rem;
+  font-size: 1rem;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+  flex-shrink: 0;
+}
+.theme-toggle:hover { background: rgba(255,255,255,.15); }
+
+@media (max-width: 640px) {
+  .theme-toggle { padding: .2rem .5rem; font-size: .9rem; }
 }

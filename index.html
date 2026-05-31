@@ -6,6 +6,7 @@
   <meta name="description" content="German Learning Hub - Grammar topics and quick navigation.">
   <title>German Learning Hub | Deutschlernen KB</title>
   <link rel="stylesheet" href="assets/styles.css">
+  <script>if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark');}</script>
   <style>
     .hub-grid {
       display: grid;
@@ -49,7 +50,9 @@
   <header class="site-header">
     <a href="index.html" class="site-title">Deutschlernen KB</a>
     <span class="site-subtitle">Personal Grammar Reference</span>
+    <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" title="Switch to dark mode">🌙</button>
   </header>
+  <script src="assets/nav.js" defer></script>
 
   <main class="page-body">
     <header class="topic-header">
@@ -94,6 +97,26 @@
         <article class="hub-card">
           <h3><a href="grammar/sentence-structure.html">Sentence Structure</a></h3>
           <p>V2 rule, TeKaMoLo, subordinate clauses, and question forms.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-label="Lingoda Curriculum">
+      <h2>Lingoda Curriculum</h2>
+      <div class="hub-grid">
+        <article class="hub-card" style="border-left-color:var(--accent)">
+          <h3><a href="lingoda/curriculum.html">📋 Curriculum Tracker</a></h3>
+          <p>All 23 A2.1 + A2.2 units in order — track progress, find your next unit, link to grammar and vocabulary pages.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-label="Vocabulary">
+      <h2>Vocabulary — Wortschatz</h2>
+      <div class="hub-grid">
+        <article class="hub-card" style="border-left-color:var(--sage)">
+          <h3><a href="vocabulary/freundschaften-beziehungen.html">Unit 101 — Freundschaften &amp; Beziehungen</a></h3>
+          <p>25 words on friendships, relationships, and family. Includes one-click Anki export.</p>
         </article>
       </div>
     </section>

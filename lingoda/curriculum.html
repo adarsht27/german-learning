@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Structured Lingoda A2.1 and A2.2 curriculum tracker — all 23 units with grammar topics, vocabulary themes, and progress tracking.">
+  <meta name="keywords" content="Lingoda curriculum, A2.1, A2.2, German learning plan, progress tracker, Grammatik, Wortschatz">
+  <title>Lingoda Curriculum Tracker | German Learning KB</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script>if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark');}</script>
+  <style>
+    /* ── Progress bar ── */
+    .progress-wrap {
+      background: var(--page-warm);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      margin: 0 0 2rem;
+    }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: .6rem;
+      font-size: .9rem;
+      color: var(--ink-soft);
+    }
+    .progress-label strong { color: var(--ink); font-size: 1rem; }
+    .progress-track {
+      height: 10px;
+      background: var(--border-light);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary-mid), var(--accent));
+      border-radius: 99px;
+      transition: width .4s ease;
+    }
+    .progress-sub {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: .65rem;
+      font-size: .82rem;
+      color: var(--ink-soft);
+    }
+    .progress-sub span { display: flex; align-items: center; gap: .3rem; }
+
+    /* ── Semester section ── */
+    .semester-heading {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin: 2rem 0 1rem;
+    }
+    .semester-badge {
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      padding: .2rem .65rem;
+      border-radius: 99px;
+    }
+    .badge-a21 { background: #dff0e0; color: #1e6b35; border: 1px solid #b2d9bb; }
+    .badge-a22 { background: #e0edff; color: #1a4a8a; border: 1px solid #a8c8f0; }
+    [data-theme="dark"] .badge-a21 { background: #0e2a18; color: #6adb8a; border-color: #1e4a2a; }
+    [data-theme="dark"] .badge-a22 { background: #0e1e38; color: #6ab0e0; border-color: #1e3060; }
+
+    /* ── Unit grid ── */
+    .unit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: .85rem;
+      margin-bottom: 1rem;
+    }
+
+    /* ── Unit card ── */
+    .unit-card {
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--border);
+      border-radius: var(--radius);
+      padding: .9rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-left-color .2s, box-shadow .2s;
+      position: relative;
+    }
+    .unit-card:hover { box-shadow: var(--shadow-md); }
+    .unit-card.status-in-progress { border-left-color: var(--accent); }
+    .unit-card.status-done        { border-left-color: #16a34a; }
+
+    [data-theme="dark"] .unit-card { background: var(--bg-card); border-color: var(--border); }
+
+    .unit-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: .5rem;
+    }
+    .unit-num {
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--ink-soft);
+      letter-spacing: .05em;
+    }
+
+    /* Status toggle button */
+    .status-btn {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      padding: .18rem .55rem;
+      border-radius: 99px;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+      background: transparent;
+      transition: all .15s;
+    }
+    .status-btn.ns  { border-color: var(--border); color: var(--ink-soft); }
+    .status-btn.ns:hover  { border-color: var(--accent); color: var(--accent); }
+    .status-btn.ip  { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+    .status-btn.done{ border-color: #16a34a; color: #16a34a; background: #f0fdf4; }
+    [data-theme="dark"] .status-btn.done { background: #0a2010; }
+
+    /* Unit content */
+    .unit-vocab {
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+    .unit-vocab::before { content: '📚 '; font-style: normal; }
+
+    .unit-grammar {
+      font-size: .84rem;
+      color: var(--ink-soft);
+      line-height: 1.35;
+    }
+    .unit-grammar::before { content: '🔤 '; }
+
+    /* Page links */
+    .unit-links {
+      display: flex;
+      gap: .4rem;
+      margin-top: .2rem;
+      flex-wrap: wrap;
+    }
+    .unit-link {
+      font-size: .75rem;
+      font-weight: 600;
+      padding: .18rem .5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      border: 1px solid var(--border-light);
+      color: var(--primary-mid);
+      transition: all .15s;
+    }
+    .unit-link:hover { background: var(--primary-light); border-color: var(--primary-mid); color: var(--primary); }
+    .unit-link.disabled { opacity: .38; pointer-events: none; cursor: default; }
+
+    /* Reset button */
+    .reset-wrap { text-align: right; margin-top: 1.5rem; }
+    .btn-reset-all {
+      font-size: .8rem;
+      color: var(--ink-soft);
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: .3rem .75rem;
+      cursor: pointer;
+    }
+    .btn-reset-all:hover { border-color: var(--warn); color: var(--warn); }
+
+    @media (max-width: 640px) {
+      .unit-grid { grid-template-columns: 1fr; }
+      .progress-sub { flex-direction: column; gap: .4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="../index.html" class="site-title">Deutschlernen KB</a>
+    <span class="site-subtitle">Personal Grammar Reference</span>
+    <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" title="Switch to dark mode">🌙</button>
+  </header>
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="sep" aria-hidden="true">›</span>
+    <span class="current">Lingoda Curriculum</span>
+  </nav>
+
+  <main class="page-body">
+
+    <header class="topic-header">
+      <h1>
+        Lingoda Curriculum Tracker
+        <span class="german">Lernplan A2.1 &amp; A2.2</span>
+      </h1>
+      <span class="cefr-badge a2" title="CEFR Level">A2</span>
+    </header>
+
+    <section class="key-points" aria-label="How to use">
+      <h2>⚡ How to use this tracker</h2>
+      <ul>
+        <li>Work through units <strong>in order</strong> — each unit builds on the previous one. Don't skip.</li>
+        <li>Click the <strong>status badge</strong> on any unit to cycle: Not Started → In Progress → Done. Progress is saved in your browser.</li>
+        <li>Each unit has a <strong>Vocabulary</strong> page (with Anki export) and a <strong>Grammar</strong> page. Links appear as units are created.</li>
+        <li>Every Lingoda group session maps to one unit. Four lessons per unit: Vocab → Skills → Grammar → Reading/Speaking.</li>
+      </ul>
+    </section>
+
+    <!-- Progress bar -->
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-label">
+        <strong id="progressText">0 / 23 units complete</strong>
+        <span id="progressPct">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill" style="width:0%"></div>
+      </div>
+      <div class="progress-sub">
+        <span>🟢 A2.1: <strong id="doneA21">0</strong>/12</span>
+        <span>🔵 A2.2: <strong id="doneA22">0</strong>/11</span>
+        <span>◑ In Progress: <strong id="countIP">0</strong></span>
+      </div>
+    </div>
+
+    <!-- A2.1 -->
+    <div class="semester-heading">
+      <span class="semester-badge badge-a21">A2.1</span>
+      <h2 style="margin:0;padding:0;border:none;font-size:1.15rem">Semester 1 — 12 Units</h2>
+    </div>
+    <div class="unit-grid" id="grid-a21"></div>
+
+    <!-- A2.2 -->
+    <div class="semester-heading">
+      <span class="semester-badge badge-a22">A2.2</span>
+      <h2 style="margin:0;padding:0;border:none;font-size:1.15rem">Semester 2 — 11 Units</h2>
+    </div>
+    <div class="unit-grid" id="grid-a22"></div>
+
+    <div class="reset-wrap">
+      <button class="btn-reset-all" onclick="resetAll()">Reset all progress</button>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>Deutschlernen KB</span>
+    &nbsp;·&nbsp;
+    <span>Lingoda A2 Curriculum</span>
+    &nbsp;·&nbsp;
+    <a href="../index.html">Back to Home</a>
+  </footer>
+
+  <script src="../assets/nav.js" defer></script>
+  <script>
+  /* ── Curriculum data ──────────────────────────────────────── */
+  var UNITS = [
+    // A2.1
+    { id:'101', sem:'A2.1', vocab:'Freundschaften und Beziehungen',    grammar:'Indirekte Fragesätze',
+      vocabPage:'../vocabulary/freundschaften-beziehungen.html', grammarPage:'' },
+    { id:'102', sem:'A2.1', vocab:"Geht's dir gut? / Höflichkeit",     grammar:'Präpositionen mit Akkusativ und Dativ',
+      vocabPage:'', grammarPage:'../grammar/cases.html' },
+    { id:'103', sem:'A2.1', vocab:'Die Arbeitswelt',                   grammar:'Wechselpräpositionen (Wiederholung)',
+      vocabPage:'', grammarPage:'../grammar/cases.html' },
+    { id:'104', sem:'A2.1', vocab:'Die Firma / Bewerbungen',           grammar:'Verben mit Präpositionalobjekten',
+      vocabPage:'', grammarPage:'' },
+    { id:'105', sem:'A2.1', vocab:'Einziehen und Ausziehen',           grammar:'Adjektivsteigerung',
+      vocabPage:'', grammarPage:'' },
+    { id:'106', sem:'A2.1', vocab:'Mein Zuhause',                      grammar:'Relativpronomen',
+      vocabPage:'', grammarPage:'' },
+    { id:'107', sem:'A2.1', vocab:'Das Leben in der Stadt',            grammar:'Nebensätze mit dass und weil',
+      vocabPage:'', grammarPage:'../grammar/sentence-structure.html' },
+    { id:'108', sem:'A2.1', vocab:'Kunst und Kultur',                  grammar:'Reflexive Verben',
+      vocabPage:'', grammarPage:'' },
+    { id:'109', sem:'A2.1', vocab:'Sport treiben',                     grammar:'der-Wörter vs. ein-Wörter',
+      vocabPage:'', grammarPage:'../grammar/article-declension.html' },
+    { id:'110', sem:'A2.1', vocab:'Fit bleiben',                       grammar:'Adjektivendungen',
+      vocabPage:'', grammarPage:'' },
+    { id:'111', sem:'A2.1', vocab:'Pläne machen',                      grammar:'Futur I mit werden',
+      vocabPage:'', grammarPage:'../grammar/verb-conjugation.html' },
+    { id:'112', sem:'A2.1', vocab:'Zukunftspläne',                     grammar:'Wiederholung A2.1',
+      vocabPage:'', grammarPage:'' },
+    // A2.2
+    { id:'201', sem:'A2.2', vocab:'Essen und Gerüche',                 grammar:'Indirekte Rede',
+      vocabPage:'', grammarPage:'' },
+    { id:'202', sem:'A2.2', vocab:'Die deutsche Küche',                grammar:'Das Passiv',
+      vocabPage:'', grammarPage:'' },
+    { id:'203', sem:'A2.2', vocab:'Reisen und Sehenswürdigkeiten',     grammar:'Konnektoren',
+      vocabPage:'', grammarPage:'' },
+    { id:'204', sem:'A2.2', vocab:'Gespräche im Hotel',                grammar:'Lokal- und Direktionaladverbien',
+      vocabPage:'', grammarPage:'' },
+    { id:'205', sem:'A2.2', vocab:'Dienstleistungen / Mode',           grammar:'Das Präteritum',
+      vocabPage:'', grammarPage:'' },
+    { id:'206', sem:'A2.2', vocab:'Das Geld',                          grammar:'Adjektivierung',
+      vocabPage:'', grammarPage:'' },
+    { id:'207', sem:'A2.2', vocab:'Die Ausbildung / Lebenslauf',       grammar:'Konjunktiv II (Einführung)',
+      vocabPage:'', grammarPage:'' },
+    { id:'209', sem:'A2.2', vocab:'Technologie und Medien',            grammar:'Indefinitpronomen',
+      vocabPage:'', grammarPage:'' },
+    { id:'210', sem:'A2.2', vocab:'Medien / Nachrichten',              grammar:'Der Genitiv',
+      vocabPage:'', grammarPage:'../grammar/cases.html' },
+    { id:'211', sem:'A2.2', vocab:'Die Wanderlust / Natur',            grammar:'Präpositionalverben',
+      vocabPage:'', grammarPage:'' },
+    { id:'212', sem:'A2.2', vocab:'Umwelt und Tiere',                  grammar:'Adjektivendungen (erweitert)',
+      vocabPage:'', grammarPage:'' },
+  ];
+
+  var STATUS_CYCLE  = ['ns', 'ip', 'done'];
+  var STATUS_LABELS = { ns:'○ Not Started', ip:'◑ In Progress', done:'● Done' };
+
+  function getStatus(id)       { return localStorage.getItem('u-'+id) || 'ns'; }
+  function setStatus(id, s)    { localStorage.setItem('u-'+id, s); }
+
+  function cycleStatus(id) {
+    var cur = getStatus(id);
+    var idx = STATUS_CYCLE.indexOf(cur);
+    var nxt = STATUS_CYCLE[(idx+1) % STATUS_CYCLE.length];
+    setStatus(id, nxt);
+    render();
+  }
+
+  function buildCard(u) {
+    var s  = getStatus(u.id);
+    var vl = u.vocabPage   ? '<a class="unit-link" href="'+u.vocabPage+'">📖 Vocabulary</a>'
+                           : '<span class="unit-link disabled">📖 Vocabulary</span>';
+    var gl = u.grammarPage ? '<a class="unit-link" href="'+u.grammarPage+'">🔤 Grammar</a>'
+                           : '<span class="unit-link disabled">🔤 Grammar</span>';
+    return '<div class="unit-card status-'+s+'" id="card-'+u.id+'">'
+      + '<div class="unit-card-top">'
+      +   '<span class="unit-num">Unit '+u.id+' &nbsp;·&nbsp; '+u.sem+'</span>'
+      +   '<button class="status-btn '+s+'" onclick="cycleStatus(\''+u.id+'\')">'
+      +     STATUS_LABELS[s]
+      +   '</button>'
+      + '</div>'
+      + '<div class="unit-vocab">'+u.vocab+'</div>'
+      + '<div class="unit-grammar">'+u.grammar+'</div>'
+      + '<div class="unit-links">'+vl+' '+gl+'</div>'
+      + '</div>';
+  }
+
+  function render() {
+    var g21 = document.getElementById('grid-a21');
+    var g22 = document.getElementById('grid-a22');
+    var html21 = '', html22 = '';
+    var done21=0, done22=0, ip=0, total=UNITS.length;
+
+    UNITS.forEach(function(u) {
+      var s = getStatus(u.id);
+      if (u.sem==='A2.1') { html21 += buildCard(u); if(s==='done') done21++; }
+      else                { html22 += buildCard(u); if(s==='done') done22++; }
+      if (s==='ip') ip++;
+    });
+
+    g21.innerHTML = html21;
+    g22.innerHTML = html22;
+
+    var done  = done21 + done22;
+    var pct   = Math.round((done / total) * 100);
+    document.getElementById('progressText').textContent = done+' / '+total+' units complete';
+    document.getElementById('progressPct').textContent  = pct+'%';
+    document.getElementById('progressFill').style.width = pct+'%';
+    document.getElementById('doneA21').textContent = done21;
+    document.getElementById('doneA22').textContent = done22;
+    document.getElementById('countIP').textContent = ip;
+  }
+
+  function resetAll() {
+    if (!confirm('Reset all progress? This cannot be undone.')) return;
+    UNITS.forEach(function(u) { localStorage.removeItem('u-'+u.id); });
+    render();
+  }
+
+  render();
+  </script>
+
+</body>
+</html>

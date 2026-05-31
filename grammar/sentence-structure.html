@@ -7,12 +7,14 @@
   <meta name="keywords" content="German word order, sentence structure, verb second rule, V2, Satzklammer, verbal bracket, TeKaMoLo, subordinate clauses, weil dass wenn, Nebensatz, German grammar A1 A2, Wortstellung, questions German">
   <title>Sentence Structure &amp; Word Order (Satzstruktur) | German Learning KB</title>
   <link rel="stylesheet" href="../assets/styles.css">
+  <script>if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark');}</script>
 </head>
 <body>
 
   <header class="site-header">
     <a href="../index.html" class="site-title">Deutschlernen KB</a>
     <span class="site-subtitle">Personal Grammar Reference</span>
+    <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" title="Switch to dark mode">🌙</button>
   </header>
 
   <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -411,6 +413,175 @@
       </ul>
     </section>
 
+    <!-- ══════════════════════════════════
+         EXERCISES
+    ══════════════════════════════════ -->
+    <section class="exercises" aria-label="Exercises">
+      <h2>✏️ Übungen (Exercises)</h2>
+      <p class="exercises-intro">These exercises follow <strong>Goethe-Zertifikat A2</strong> and <strong>TELC Deutsch A2</strong> formats. Word order errors are among the most common mistakes — these drills target the V2 rule, subordinate clauses, and the verbal bracket directly.</p>
+
+      <!-- ── Exercise 1: Lückentext ── -->
+      <div class="exercise-block" id="ex1">
+        <div class="exercise-header">
+          <span class="exercise-num">Exercise 1</span>
+          <span class="exercise-type">Lückentext</span>
+          <span class="exercise-exam-tag">Goethe A2 · Schreiben style</span>
+        </div>
+        <p class="exercise-instruction">Conjugate the verb in brackets into the correct form for that <strong>clause type</strong> (main clause, question, subordinate clause, or modal bracket).</p>
+        <ol class="gap-fill-list">
+          <li>Heute <input class="gap-input" style="width:5.5rem" data-answer="lerne"> (lernen) ich Deutsch. <span style="font-size:.85em;color:var(--ink-soft)">(main clause — inversion after 'Heute')</span></li>
+          <li><input class="gap-input" style="width:5.5rem" data-answer="hörst"> (hören) du gerne Musik? <span style="font-size:.85em;color:var(--ink-soft)">(yes/no question — verb in position 1)</span></li>
+          <li>Er sagt, dass er Deutsch <input class="gap-input" style="width:5.5rem" data-answer="lernt">. (lernen) <span style="font-size:.85em;color:var(--ink-soft)">(subordinate clause after 'dass' — verb to end)</span></li>
+          <li>Ich kann heute nicht <input class="gap-input" style="width:5.5rem" data-answer="kommen">. (kommen) <span style="font-size:.85em;color:var(--ink-soft)">(modal bracket — infinitive at end)</span></li>
+          <li>Weil ich müde <input class="gap-input" style="width:5.5rem" data-answer="bin">, gehe ich schlafen. (sein) <span style="font-size:.85em;color:var(--ink-soft)">(subordinate clause — finite verb to end)</span></li>
+        </ol>
+        <div class="exercise-controls">
+          <button class="btn-check" onclick="checkGapFill('ex1')">Check</button>
+          <button class="btn-reset" onclick="resetGapFill('ex1')">Reset</button>
+        </div>
+        <div class="exercise-score"></div>
+      </div>
+
+      <!-- ── Exercise 2: Sprachbausteine ── -->
+      <div class="exercise-block" id="ex2">
+        <div class="exercise-header">
+          <span class="exercise-num">Exercise 2</span>
+          <span class="exercise-type">Sprachbausteine</span>
+          <span class="exercise-exam-tag">TELC A2 · Lesen Teil 5 style</span>
+        </div>
+        <p class="exercise-instruction">Choose the correct <strong>subordinating conjunction</strong> to match the meaning of each sentence.</p>
+        <p class="sb-text">
+          Ich lerne Deutsch,
+          <span class="sb-label">1</span><select class="sb-select" data-answer="weil">
+            <option value="">—</option>
+            <option value="weil">weil</option>
+            <option value="aber">aber</option>
+            <option value="und">und</option>
+          </select>
+          ich in Berlin wohne. Er bleibt zu Hause,
+          <span class="sb-label">2</span><select class="sb-select" data-answer="obwohl">
+            <option value="">—</option>
+            <option value="obwohl">obwohl</option>
+            <option value="dass">dass</option>
+            <option value="als">als</option>
+          </select>
+          er krank ist.
+          <span class="sb-label">3</span><select class="sb-select" data-answer="wenn">
+            <option value="">—</option>
+            <option value="Wann">Wann</option>
+            <option value="Wenn">Wenn</option>
+            <option value="Als">Als</option>
+          </select>
+          du nach Hause kommst, ruf mich an.
+        </p>
+        <p style="font-size:.83rem;color:var(--ink-soft);margin-top:.4rem">Hint: 1 = "because" (reason) · 2 = "although" (contrast) · 3 = "when/if" (repeated/future condition — not a past event)</p>
+        <div class="exercise-controls">
+          <button class="btn-check" onclick="checkSB('ex2')">Check</button>
+          <button class="btn-reset" onclick="resetSB('ex2')">Reset</button>
+        </div>
+        <div class="exercise-score"></div>
+      </div>
+
+      <!-- ── Exercise 3: Multiple Choice ── -->
+      <div class="exercise-block" id="ex3">
+        <div class="exercise-header">
+          <span class="exercise-num">Exercise 3</span>
+          <span class="exercise-type">Multiple Choice</span>
+          <span class="exercise-exam-tag">Goethe A2 · Grammatik style</span>
+        </div>
+        <p class="exercise-instruction">Identify the <strong>rule</strong> that explains the verb's position in each sentence.</p>
+        <ul class="mc-list">
+          <li>
+            <p class="mc-sentence"><em class="de">…weil er heute keine Zeit <u>hat</u>.</em> — Why is 'hat' at the end?</p>
+            <div class="mc-options">
+              <button class="mc-btn" data-correct="false" data-hint="V2 rule applies to main clauses. 'weil' introduces a subordinate clause." onclick="selectMC(this,'ex3',0)">V2 rule</button>
+              <button class="mc-btn" data-correct="true"  data-hint="Correct! 'weil' is a subordinating conjunction — the finite verb must move to the very end." onclick="selectMC(this,'ex3',0)">Subordinate clause verb-final rule</button>
+              <button class="mc-btn" data-correct="false" data-hint="The Satzklammer applies when there's a modal or auxiliary. 'hat' here is the main verb." onclick="selectMC(this,'ex3',0)">Verbal bracket (Satzklammer)</button>
+              <button class="mc-btn" data-correct="false" data-hint="TeKaMoLo orders adverbs within the bracket — it doesn't explain verb position." onclick="selectMC(this,'ex3',0)">TeKaMoLo adverb order</button>
+            </div>
+            <div class="mc-feedback"></div>
+          </li>
+          <li>
+            <p class="mc-sentence"><em class="de"><u>Heute</u> <u>lerne</u> ich Deutsch.</em> — Why does 'lerne' come before 'ich'?</p>
+            <div class="mc-options">
+              <button class="mc-btn" data-correct="false" data-hint="Questions start with the verb or a W-word. This is a statement." onclick="selectMC(this,'ex3',1)">It's a yes/no question</button>
+              <button class="mc-btn" data-correct="true"  data-hint="Correct! 'Heute' occupies position 1, so the verb must come next (position 2), pushing 'ich' to position 3. This is V2 inversion." onclick="selectMC(this,'ex3',1)">V2 rule — inversion after 'Heute' in position 1</button>
+              <button class="mc-btn" data-correct="false" data-hint="Subordinate clauses send the verb to the END, not position 2." onclick="selectMC(this,'ex3',1)">Subordinate clause rule</button>
+              <button class="mc-btn" data-correct="false" data-hint="TeKaMoLo orders adverbs — it doesn't move the verb." onclick="selectMC(this,'ex3',1)">TeKaMoLo</button>
+            </div>
+            <div class="mc-feedback"></div>
+          </li>
+          <li>
+            <p class="mc-sentence"><em class="de"><u>Kann</u> er schwimmen?</em> — Why is 'kann' in position 1?</p>
+            <div class="mc-options">
+              <button class="mc-btn" data-correct="false" data-hint="V2 inversion keeps the verb in position 2, not position 1." onclick="selectMC(this,'ex3',2)">V2 inversion</button>
+              <button class="mc-btn" data-correct="true"  data-hint="Correct! For yes/no questions the verb moves to position 1 — before the subject." onclick="selectMC(this,'ex3',2)">Yes/no question — verb in position 1</button>
+              <button class="mc-btn" data-correct="false" data-hint="Subordinate clauses move the verb to the END, not the front." onclick="selectMC(this,'ex3',2)">Subordinate clause rule</button>
+              <button class="mc-btn" data-correct="false" data-hint="Verbal bracket means two verb parts. Here 'kann' alone is in position 1." onclick="selectMC(this,'ex3',2)">Verbal bracket (Satzklammer)</button>
+            </div>
+            <div class="mc-feedback"></div>
+          </li>
+          <li>
+            <p class="mc-sentence"><em class="de">Ich muss jetzt nach Hause <u>gehen</u>.</em> — Why is 'gehen' at the end?</p>
+            <div class="mc-options">
+              <button class="mc-btn" data-correct="false" data-hint="Subordinate clause rule applies after conjunctions like 'weil'. There's no conjunction here." onclick="selectMC(this,'ex3',3)">Subordinate clause rule</button>
+              <button class="mc-btn" data-correct="false" data-hint="Yes/no questions put the verb in position 1. This is a statement." onclick="selectMC(this,'ex3',3)">Yes/no question</button>
+              <button class="mc-btn" data-correct="true"  data-hint="Correct! 'muss' (modal) is in position 2, and the infinitive 'gehen' is sent to the end — forming the verbal bracket." onclick="selectMC(this,'ex3',3)">Verbal bracket (Satzklammer) with modal</button>
+              <button class="mc-btn" data-correct="false" data-hint="TeKaMoLo orders adverbs — it doesn't govern where the infinitive goes." onclick="selectMC(this,'ex3',3)">TeKaMoLo adverb order</button>
+            </div>
+            <div class="mc-feedback"></div>
+          </li>
+        </ul>
+        <div class="exercise-controls">
+          <button class="btn-check" onclick="checkMC('ex3')">Check</button>
+          <button class="btn-reset" onclick="resetMC('ex3')">Reset</button>
+        </div>
+        <div class="exercise-score"></div>
+      </div>
+
+      <!-- ── Exercise 4: Fehlerkorrektur ── -->
+      <div class="exercise-block" id="ex4">
+        <div class="exercise-header">
+          <span class="exercise-num">Exercise 4</span>
+          <span class="exercise-type">Fehlerkorrektur</span>
+          <span class="exercise-exam-tag">TELC A2 · Grammatik style</span>
+        </div>
+        <p class="exercise-instruction">Each subordinate clause has a <strong>wrong verb form</strong> (in red) for the person shown. Type the correct conjugated form.</p>
+        <ul class="errcor-list">
+          <li>
+            <span class="errcor-sentence">Sie sagt, dass sie Deutsch <span class="wrong-art">lernst</span>.</span>
+            <span class="errcor-label">Correct →</span>
+            <input class="errcor-input" style="width:5.5rem" data-answer="lernt" placeholder="?">
+            <span class="item-feedback"></span>
+          </li>
+          <li>
+            <span class="errcor-sentence">Ich hoffe, dass du morgen <span class="wrong-art">kommen</span>.</span>
+            <span class="errcor-label">Correct →</span>
+            <input class="errcor-input" style="width:5.5rem" data-answer="kommst" placeholder="?">
+            <span class="item-feedback"></span>
+          </li>
+          <li>
+            <span class="errcor-sentence">Weil ich müde <span class="wrong-art">bist</span>, gehe ich schlafen.</span>
+            <span class="errcor-label">Correct →</span>
+            <input class="errcor-input" style="width:5.5rem" data-answer="bin" placeholder="?">
+            <span class="item-feedback"></span>
+          </li>
+          <li>
+            <span class="errcor-sentence">Er fragt, ob wir morgen <span class="wrong-art">kommt</span>.</span>
+            <span class="errcor-label">Correct →</span>
+            <input class="errcor-input" style="width:5.5rem" data-answer="kommen" placeholder="?">
+            <span class="item-feedback"></span>
+          </li>
+        </ul>
+        <div class="exercise-controls">
+          <button class="btn-check" onclick="checkErrCor('ex4')">Check</button>
+          <button class="btn-reset" onclick="resetErrCor('ex4')">Reset</button>
+        </div>
+        <div class="exercise-score"></div>
+      </div>
+
+    </section><!-- /exercises -->
+
     <a href="#" class="back-to-top" aria-label="Back to top">↑ Back to top</a>
 
   </main>
@@ -426,6 +597,7 @@
   </footer>
 
   <script src="../assets/nav.js" defer></script>
+  <script src="../assets/exercises.js" defer></script>
 
 </body>
 </html>

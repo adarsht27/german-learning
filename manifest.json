@@ -86,5 +86,25 @@
       "noun-gender", "article-declension"
     ],
     "updated": "2026-05-31"
+  },
+  {
+    "slug": "curriculum",
+    "file": "lingoda/curriculum.html",
+    "title": "Lingoda Curriculum Tracker",
+    "cefr": ["A2"],
+    "category": "lingoda",
+    "tags": ["curriculum", "tracker", "A2.1", "A2.2", "Lingoda", "study plan", "progress"],
+    "connected": [],
+    "updated": "2026-06-01"
+  },
+  {
+    "slug": "freundschaften-beziehungen",
+    "file": "vocabulary/freundschaften-beziehungen.html",
+    "title": "Freundschaften und Beziehungen (Unit 101)",
+    "cefr": ["A2"],
+    "category": "vocabulary",
+    "tags": ["Freundschaft", "Beziehung", "relationships", "family", "Unit 101", "A2.1", "Anki", "Wortschatz"],
+    "connected": ["sentence-structure", "verb-conjugation"],
+    "updated": "2026-06-01"
   }
 ]

@@ -7,6 +7,7 @@
   <meta name="keywords" content="German cases, Nominativ, Akkusativ, Dativ, Genitiv, German grammar, A1, A2, der die das, declension, Fälle, German articles, case prepositions, German for beginners">
   <title>German Cases (Die Fälle) | German Learning KB</title>
   <link rel="stylesheet" href="../assets/styles.css">
+  <script>if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark');}</script>
 </head>
 <body>
 
@@ -14,6 +15,7 @@
   <header class="site-header">
     <a href="../index.html" class="site-title">Deutschlernen KB</a>
     <span class="site-subtitle">Personal Grammar Reference</span>
+    <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" title="Switch to dark mode">🌙</button>
   </header>
 
   <!-- ── Breadcrumb ── -->
@@ -402,6 +404,175 @@
       </ul>
     </section>
 
+    <!-- ══════════════════════════════════
+         EXERCISES
+    ══════════════════════════════════ -->
+    <section class="exercises" aria-label="Exercises">
+      <h2>✏️ Übungen (Exercises)</h2>
+      <p class="exercises-intro">These exercises follow the question styles used in <strong>Goethe-Zertifikat A2</strong> and <strong>TELC Deutsch A2</strong> exams. Complete each one, then press <em>Check</em> to see your score. Press <em>Reset</em> to try again.</p>
+
+      <!-- ── Exercise 1: Lückentext ── -->
+      <div class="exercise-block" id="ex1">
+        <div class="exercise-header">
+          <span class="exercise-num">Exercise 1</span>
+          <span class="exercise-type">Lückentext</span>
+          <span class="exercise-exam-tag">Goethe A2 · Schreiben Part 1 style</span>
+        </div>
+        <p class="exercise-instruction">Fill in the correct <strong>definite article</strong> (<em class="de">der / die / das / den / dem / des</em>). Pay attention to the case.</p>
+        <ol class="gap-fill-list">
+          <li><input class="gap-input" data-answer="der"> Lehrer erklärt die Grammatik. <span style="font-size:.85em;color:var(--ink-soft)">(subject — nom. masc.)</span></li>
+          <li>Ich kaufe <input class="gap-input" data-answer="den"> Apfel. <span style="font-size:.85em;color:var(--ink-soft)">(direct object — acc. masc.)</span></li>
+          <li>Sie hilft <input class="gap-input" data-answer="dem"> alten Mann. <span style="font-size:.85em;color:var(--ink-soft)">(indirect object — dat. masc.)</span></li>
+          <li>Das ist das Auto <input class="gap-input" data-answer="der"> Frau. <span style="font-size:.85em;color:var(--ink-soft)">(possession — gen. fem.)</span></li>
+          <li>Er schreibt <input class="gap-input" data-answer="den"> Kindern einen Brief. <span style="font-size:.85em;color:var(--ink-soft)">(recipient — dat. pl.)</span></li>
+        </ol>
+        <div class="exercise-controls">
+          <button class="btn-check" onclick="checkGapFill('ex1')">Check</button>
+          <button class="btn-reset" onclick="resetGapFill('ex1')">Reset</button>
+        </div>
+        <div class="exercise-score"></div>
+      </div>
+
+      <!-- ── Exercise 2: Sprachbausteine ── -->
+      <div class="exercise-block" id="ex2">
+        <div class="exercise-header">
+          <span class="exercise-num">Exercise 2</span>
+          <span class="exercise-type">Sprachbausteine</span>
+          <span class="exercise-exam-tag">TELC A2 · Lesen Teil 5 style</span>
+        </div>
+        <p class="exercise-instruction">Choose the correct article form from each dropdown to complete the text.</p>
+        <p class="sb-text">
+          Gestern sah ich
+          <span class="sb-label">1</span><select class="sb-select" data-answer="den">
+            <option value="">—</option>
+            <option value="der">der</option>
+            <option value="den">den</option>
+            <option value="dem">dem</option>
+          </select>
+          Film im Kino. Danach gab ich
+          <span class="sb-label">2</span><select class="sb-select" data-answer="der">
+            <option value="">—</option>
+            <option value="die">die</option>
+            <option value="der">der</option>
+            <option value="dem">dem</option>
+          </select>
+          Kellnerin das Geld.
+          <span class="sb-label">3</span><select class="sb-select" data-answer="der">
+            <option value="">—</option>
+            <option value="Der">Der</option>
+            <option value="Die">Die</option>
+            <option value="Das">Das</option>
+          </select>
+          Film war sehr gut.
+        </p>
+        <p style="font-size:.83rem;color:var(--ink-soft);margin-top:.4rem">Hint: 1 = direct object (masc.) · 2 = dative after giving (fem.) · 3 = subject (masc.)</p>
+        <div class="exercise-controls">
+          <button class="btn-check" onclick="checkSB('ex2')">Check</button>
+          <button class="btn-reset" onclick="resetSB('ex2')">Reset</button>
+        </div>
+        <div class="exercise-score"></div>
+      </div>
+
+      <!-- ── Exercise 3: Multiple Choice ── -->
+      <div class="exercise-block" id="ex3">
+        <div class="exercise-header">
+          <span class="exercise-num">Exercise 3</span>
+          <span class="exercise-type">Multiple Choice</span>
+          <span class="exercise-exam-tag">Goethe A2 · Grammatik style</span>
+        </div>
+        <p class="exercise-instruction">Select the correct <strong>case</strong> for the underlined noun phrase in each sentence.</p>
+        <ul class="mc-list">
+          <li>
+            <p class="mc-sentence"><em class="de"><u>Den Mann</u> sehe ich jeden Tag.</em></p>
+            <div class="mc-options">
+              <button class="mc-btn" data-correct="false" data-hint="Nominative is for subjects — the doer. Here 'den Mann' is what's being seen." onclick="selectMC(this,'ex3',0)">Nominative</button>
+              <button class="mc-btn" data-correct="true"  data-hint="Correct! 'den' signals accusative masculine — the direct object." onclick="selectMC(this,'ex3',0)">Accusative</button>
+              <button class="mc-btn" data-correct="false" data-hint="Dative would be 'dem Mann'. 'den' is accusative." onclick="selectMC(this,'ex3',0)">Dative</button>
+              <button class="mc-btn" data-correct="false" data-hint="Genitive would be 'des Mannes'." onclick="selectMC(this,'ex3',0)">Genitive</button>
+            </div>
+            <div class="mc-feedback"></div>
+          </li>
+          <li>
+            <p class="mc-sentence"><em class="de">Ich helfe <u>der Frau</u> mit dem Gepäck.</em></p>
+            <div class="mc-options">
+              <button class="mc-btn" data-correct="false" data-hint="Nominative 'die Frau' — but 'helfen' always takes dative." onclick="selectMC(this,'ex3',1)">Nominative</button>
+              <button class="mc-btn" data-correct="false" data-hint="Accusative feminine = 'die Frau'. 'der Frau' is dative." onclick="selectMC(this,'ex3',1)">Accusative</button>
+              <button class="mc-btn" data-correct="true"  data-hint="Correct! 'helfen' takes dative. Dative feminine = 'der'." onclick="selectMC(this,'ex3',1)">Dative</button>
+              <button class="mc-btn" data-correct="false" data-hint="Genitive feminine is also 'der' but genitive follows possession, not 'helfen'." onclick="selectMC(this,'ex3',1)">Genitive</button>
+            </div>
+            <div class="mc-feedback"></div>
+          </li>
+          <li>
+            <p class="mc-sentence"><em class="de">Das Buch <u>der Lehrerin</u> liegt auf dem Tisch.</em></p>
+            <div class="mc-options">
+              <button class="mc-btn" data-correct="false" data-hint="Nominative shows the subject — 'das Buch' is the subject here." onclick="selectMC(this,'ex3',2)">Nominative</button>
+              <button class="mc-btn" data-correct="false" data-hint="Accusative feminine = 'die Lehrerin'. 'der' here signals genitive." onclick="selectMC(this,'ex3',2)">Accusative</button>
+              <button class="mc-btn" data-correct="false" data-hint="Dative feminine is also 'der' — but there's no dative-triggering verb or preposition here." onclick="selectMC(this,'ex3',2)">Dative</button>
+              <button class="mc-btn" data-correct="true"  data-hint="Correct! 'der Lehrerin' shows whose book it is — genitive possession." onclick="selectMC(this,'ex3',2)">Genitive</button>
+            </div>
+            <div class="mc-feedback"></div>
+          </li>
+          <li>
+            <p class="mc-sentence"><em class="de"><u>Die Kinder</u> spielen im Park.</em></p>
+            <div class="mc-options">
+              <button class="mc-btn" data-correct="true"  data-hint="Correct! The children are doing the action — they are the subject in nominative." onclick="selectMC(this,'ex3',3)">Nominative</button>
+              <button class="mc-btn" data-correct="false" data-hint="Accusative plural is also 'die', but here 'die Kinder' performs the action." onclick="selectMC(this,'ex3',3)">Accusative</button>
+              <button class="mc-btn" data-correct="false" data-hint="Dative plural = 'den Kindern'. This is 'die Kinder'." onclick="selectMC(this,'ex3',3)">Dative</button>
+              <button class="mc-btn" data-correct="false" data-hint="Genitive plural = 'der Kinder'. This is 'die Kinder'." onclick="selectMC(this,'ex3',3)">Genitive</button>
+            </div>
+            <div class="mc-feedback"></div>
+          </li>
+        </ul>
+        <div class="exercise-controls">
+          <button class="btn-check" onclick="checkMC('ex3')">Check</button>
+          <button class="btn-reset" onclick="resetMC('ex3')">Reset</button>
+        </div>
+        <div class="exercise-score"></div>
+      </div>
+
+      <!-- ── Exercise 4: Fehlerkorrektur ── -->
+      <div class="exercise-block" id="ex4">
+        <div class="exercise-header">
+          <span class="exercise-num">Exercise 4</span>
+          <span class="exercise-type">Fehlerkorrektur</span>
+          <span class="exercise-exam-tag">TELC A2 · Grammatik style</span>
+        </div>
+        <p class="exercise-instruction">Each sentence contains one <strong>wrong article</strong> (shown in red). Type the <strong>correct article</strong> in the box.</p>
+        <ul class="errcor-list">
+          <li>
+            <span class="errcor-sentence">Ich kaufe <span class="wrong-art">der</span> Apfel.</span>
+            <span class="errcor-label">Correct →</span>
+            <input class="errcor-input" data-answer="den" placeholder="?">
+            <span class="item-feedback"></span>
+          </li>
+          <li>
+            <span class="errcor-sentence">Er hilft <span class="wrong-art">die</span> Frau mit dem Koffer.</span>
+            <span class="errcor-label">Correct →</span>
+            <input class="errcor-input" data-answer="der" placeholder="?">
+            <span class="item-feedback"></span>
+          </li>
+          <li>
+            <span class="errcor-sentence">Das ist <span class="wrong-art">dem</span> Auto meines Vaters.</span>
+            <span class="errcor-label">Correct →</span>
+            <input class="errcor-input" data-answer="das" placeholder="?">
+            <span class="item-feedback"></span>
+          </li>
+          <li>
+            <span class="errcor-sentence">Wegen <span class="wrong-art">den</span> Wetters bleibt er zu Hause.</span>
+            <span class="errcor-label">Correct →</span>
+            <input class="errcor-input" data-answer="des" placeholder="?">
+            <span class="item-feedback"></span>
+          </li>
+        </ul>
+        <div class="exercise-controls">
+          <button class="btn-check" onclick="checkErrCor('ex4')">Check</button>
+          <button class="btn-reset" onclick="resetErrCor('ex4')">Reset</button>
+        </div>
+        <div class="exercise-score"></div>
+      </div>
+
+    </section><!-- /exercises -->
+
     <a href="#" class="back-to-top" aria-label="Back to top">↑ Back to top</a>
 
   </main>
@@ -418,6 +589,7 @@
   </footer>
 
   <script src="../assets/nav.js" defer></script>
+  <script src="../assets/exercises.js" defer></script>
 
 </body>
 </html>

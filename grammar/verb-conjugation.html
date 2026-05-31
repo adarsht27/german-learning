@@ -7,12 +7,14 @@
   <meta name="keywords" content="German verb conjugation, Präsens, present tense, regular verbs, strong verbs, sein haben werden, modal verbs, separable verbs, Stammvokalwechsel, A1, German grammar beginner, konjugation">
   <title>Present Tense Conjugation (Präsens) | German Learning KB</title>
   <link rel="stylesheet" href="../assets/styles.css">
+  <script>if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark');}</script>
 </head>
 <body>
 
   <header class="site-header">
     <a href="../index.html" class="site-title">Deutschlernen KB</a>
     <span class="site-subtitle">Personal Grammar Reference</span>
+    <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" title="Switch to dark mode">🌙</button>
   </header>
 
   <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -330,6 +332,175 @@
       </ul>
     </section>
 
+    <!-- ══════════════════════════════════
+         EXERCISES
+    ══════════════════════════════════ -->
+    <section class="exercises" aria-label="Exercises">
+      <h2>✏️ Übungen (Exercises)</h2>
+      <p class="exercises-intro">These exercises follow <strong>Goethe-Zertifikat A2</strong> and <strong>TELC Deutsch A2</strong> formats. Conjugation is tested in every part of those exams — practice until the forms come automatically.</p>
+
+      <!-- ── Exercise 1: Lückentext ── -->
+      <div class="exercise-block" id="ex1">
+        <div class="exercise-header">
+          <span class="exercise-num">Exercise 1</span>
+          <span class="exercise-type">Lückentext</span>
+          <span class="exercise-exam-tag">Goethe A2 · Schreiben style</span>
+        </div>
+        <p class="exercise-instruction">Conjugate the verb in brackets into the correct <strong>present tense</strong> form.</p>
+        <ol class="gap-fill-list">
+          <li>Er <input class="gap-input" style="width:5.5rem" data-answer="kommt"> (kommen) aus München. <span style="font-size:.85em;color:var(--ink-soft)">(3rd sg. regular)</span></li>
+          <li>Du <input class="gap-input" style="width:5.5rem" data-answer="fährst"> (fahren) zu schnell! <span style="font-size:.85em;color:var(--ink-soft)">(2nd sg. — vowel change a → ä)</span></li>
+          <li>Wir <input class="gap-input" style="width:5.5rem" data-answer="sind"> (sein) sehr müde. <span style="font-size:.85em;color:var(--ink-soft)">(1st pl. irregular)</span></li>
+          <li>Ich <input class="gap-input" style="width:5.5rem" data-answer="möchte"> (möchten) einen Kaffee, bitte. <span style="font-size:.85em;color:var(--ink-soft)">(1st sg. modal — no ending)</span></li>
+          <li>Die Kinder <input class="gap-input" style="width:5.5rem" data-answer="essen"> (essen) gerne Pizza. <span style="font-size:.85em;color:var(--ink-soft)">(3rd pl. strong verb)</span></li>
+        </ol>
+        <div class="exercise-controls">
+          <button class="btn-check" onclick="checkGapFill('ex1')">Check</button>
+          <button class="btn-reset" onclick="resetGapFill('ex1')">Reset</button>
+        </div>
+        <div class="exercise-score"></div>
+      </div>
+
+      <!-- ── Exercise 2: Sprachbausteine ── -->
+      <div class="exercise-block" id="ex2">
+        <div class="exercise-header">
+          <span class="exercise-num">Exercise 2</span>
+          <span class="exercise-type">Sprachbausteine</span>
+          <span class="exercise-exam-tag">TELC A2 · Lesen Teil 5 style</span>
+        </div>
+        <p class="exercise-instruction">Choose the correct <strong>modal verb form</strong> from each dropdown.</p>
+        <p class="sb-text">
+          Ich
+          <span class="sb-label">1</span><select class="sb-select" data-answer="kann">
+            <option value="">—</option>
+            <option value="kann">kann</option>
+            <option value="kannst">kannst</option>
+            <option value="können">können</option>
+          </select>
+          gut kochen. Mein Vater
+          <span class="sb-label">2</span><select class="sb-select" data-answer="muss">
+            <option value="">—</option>
+            <option value="muss">muss</option>
+            <option value="musst">musst</option>
+            <option value="müssen">müssen</option>
+          </select>
+          viel arbeiten. Wir
+          <span class="sb-label">3</span><select class="sb-select" data-answer="wollen">
+            <option value="">—</option>
+            <option value="will">will</option>
+            <option value="wollt">wollt</option>
+            <option value="wollen">wollen</option>
+          </select>
+          heute ins Kino gehen.
+        </p>
+        <p style="font-size:.83rem;color:var(--ink-soft);margin-top:.4rem">Hint: modals have no ending in ich/er/sie/es (1sg, 3sg). · 1 = ich · 2 = mein Vater · 3 = wir</p>
+        <div class="exercise-controls">
+          <button class="btn-check" onclick="checkSB('ex2')">Check</button>
+          <button class="btn-reset" onclick="resetSB('ex2')">Reset</button>
+        </div>
+        <div class="exercise-score"></div>
+      </div>
+
+      <!-- ── Exercise 3: Multiple Choice ── -->
+      <div class="exercise-block" id="ex3">
+        <div class="exercise-header">
+          <span class="exercise-num">Exercise 3</span>
+          <span class="exercise-type">Multiple Choice</span>
+          <span class="exercise-exam-tag">Goethe A2 · Grammatik style</span>
+        </div>
+        <p class="exercise-instruction">Identify the <strong>verb type or rule</strong> illustrated in each sentence.</p>
+        <ul class="mc-list">
+          <li>
+            <p class="mc-sentence"><em class="de">Er <u>gibt</u> mir das Buch.</em> — What type of verb is <em>geben</em>?</p>
+            <div class="mc-options">
+              <button class="mc-btn" data-correct="false" data-hint="Regular verbs don't change their stem vowel. 'geben' (e→i) is irregular." onclick="selectMC(this,'ex3',0)">Regular (weak) verb</button>
+              <button class="mc-btn" data-correct="true"  data-hint="Correct! 'geben → gibt' shows the e→i strong-verb vowel change." onclick="selectMC(this,'ex3',0)">Strong verb (e → i)</button>
+              <button class="mc-btn" data-correct="false" data-hint="Modal verbs express ability/permission. 'geben' means 'to give'." onclick="selectMC(this,'ex3',0)">Modal verb</button>
+              <button class="mc-btn" data-correct="false" data-hint="Separable verbs have a detachable prefix. 'geben' has no prefix here." onclick="selectMC(this,'ex3',0)">Separable verb</button>
+            </div>
+            <div class="mc-feedback"></div>
+          </li>
+          <li>
+            <p class="mc-sentence"><em class="de">Er <u>ruft</u> seine Mutter <u>an</u>.</em> — What type of verb is this?</p>
+            <div class="mc-options">
+              <button class="mc-btn" data-correct="false" data-hint="Modal verbs use a second infinitive at the end, not a prefix." onclick="selectMC(this,'ex3',1)">Modal verb</button>
+              <button class="mc-btn" data-correct="false" data-hint="A strong verb changes its stem vowel — 'rufen' doesn't do that here." onclick="selectMC(this,'ex3',1)">Strong verb</button>
+              <button class="mc-btn" data-correct="true"  data-hint="Correct! 'anrufen' is separable: 'ruft' stays in pos. 2, 'an' goes to the end." onclick="selectMC(this,'ex3',1)">Separable verb</button>
+              <button class="mc-btn" data-correct="false" data-hint="Irregular (sein/haben/werden) are the 'big three'. 'anrufen' is not one of them." onclick="selectMC(this,'ex3',1)">Irregular verb (sein/haben)</button>
+            </div>
+            <div class="mc-feedback"></div>
+          </li>
+          <li>
+            <p class="mc-sentence"><em class="de">Ich <u>bin</u> heute sehr müde.</em> — Which group does 'sein' belong to?</p>
+            <div class="mc-options">
+              <button class="mc-btn" data-correct="false" data-hint="Regular verbs follow the standard -e/-st/-t/-en endings. 'bin' doesn't." onclick="selectMC(this,'ex3',2)">Regular (weak) verb</button>
+              <button class="mc-btn" data-correct="false" data-hint="Modals express ability/permission (können, müssen…). 'sein' is a linking verb." onclick="selectMC(this,'ex3',2)">Modal verb</button>
+              <button class="mc-btn" data-correct="true"  data-hint="Correct! 'sein' is one of the 'big three' fully irregular verbs — memorise all its forms." onclick="selectMC(this,'ex3',2)">Fully irregular (the big three)</button>
+              <button class="mc-btn" data-correct="false" data-hint="Separable verbs have a prefix that splits off. 'sein' has no prefix." onclick="selectMC(this,'ex3',2)">Separable verb</button>
+            </div>
+            <div class="mc-feedback"></div>
+          </li>
+          <li>
+            <p class="mc-sentence"><em class="de">Du <u>schläfst</u> immer lange.</em> — What vowel change occurred?</p>
+            <div class="mc-options">
+              <button class="mc-btn" data-correct="false" data-hint="e→i changes give 'spricht', 'gibt'. 'schlafen' has an 'a' not an 'e'." onclick="selectMC(this,'ex3',3)">e → i</button>
+              <button class="mc-btn" data-correct="false" data-hint="e→ie changes give 'liest', 'sieht'. 'schlafen' has an 'a' not an 'e'." onclick="selectMC(this,'ex3',3)">e → ie</button>
+              <button class="mc-btn" data-correct="true"  data-hint="Correct! schlafen → schläfst. The 'a' gains an umlaut to 'ä' in du/er forms." onclick="selectMC(this,'ex3',3)">a → ä</button>
+              <button class="mc-btn" data-correct="false" data-hint="No vowel change — but 'schläfst' clearly has a different vowel from 'schlafen'." onclick="selectMC(this,'ex3',3)">No vowel change</button>
+            </div>
+            <div class="mc-feedback"></div>
+          </li>
+        </ul>
+        <div class="exercise-controls">
+          <button class="btn-check" onclick="checkMC('ex3')">Check</button>
+          <button class="btn-reset" onclick="resetMC('ex3')">Reset</button>
+        </div>
+        <div class="exercise-score"></div>
+      </div>
+
+      <!-- ── Exercise 4: Fehlerkorrektur ── -->
+      <div class="exercise-block" id="ex4">
+        <div class="exercise-header">
+          <span class="exercise-num">Exercise 4</span>
+          <span class="exercise-type">Fehlerkorrektur</span>
+          <span class="exercise-exam-tag">TELC A2 · Grammatik style</span>
+        </div>
+        <p class="exercise-instruction">Each sentence has a <strong>wrong verb form</strong> (in red). Type the correct form.</p>
+        <ul class="errcor-list">
+          <li>
+            <span class="errcor-sentence">Sie (= she) <span class="wrong-art">lernen</span> jeden Tag Deutsch.</span>
+            <span class="errcor-label">Correct →</span>
+            <input class="errcor-input" style="width:5.5rem" data-answer="lernt" placeholder="?">
+            <span class="item-feedback"></span>
+          </li>
+          <li>
+            <span class="errcor-sentence">Du <span class="wrong-art">schläft</span> immer zu lange!</span>
+            <span class="errcor-label">Correct →</span>
+            <input class="errcor-input" style="width:5.5rem" data-answer="schläfst" placeholder="?">
+            <span class="item-feedback"></span>
+          </li>
+          <li>
+            <span class="errcor-sentence">Ich <span class="wrong-art">wollen</span> einen Kaffee.</span>
+            <span class="errcor-label">Correct →</span>
+            <input class="errcor-input" style="width:5.5rem" data-answer="will" placeholder="?">
+            <span class="item-feedback"></span>
+          </li>
+          <li>
+            <span class="errcor-sentence">Er <span class="wrong-art">machen</span> die Tür auf.</span>
+            <span class="errcor-label">Correct →</span>
+            <input class="errcor-input" style="width:5.5rem" data-answer="macht" placeholder="?">
+            <span class="item-feedback"></span>
+          </li>
+        </ul>
+        <div class="exercise-controls">
+          <button class="btn-check" onclick="checkErrCor('ex4')">Check</button>
+          <button class="btn-reset" onclick="resetErrCor('ex4')">Reset</button>
+        </div>
+        <div class="exercise-score"></div>
+      </div>
+
+    </section><!-- /exercises -->
+
     <a href="#" class="back-to-top" aria-label="Back to top">↑ Back to top</a>
 
   </main>
@@ -345,6 +516,7 @@
   </footer>
 
   <script src="../assets/nav.js" defer></script>
+  <script src="../assets/exercises.js" defer></script>
 
 </body>
 </html>

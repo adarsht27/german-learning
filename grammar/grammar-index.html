@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Grammar topic index for the Deutschlernen KB — all A1/A2 grammar topics with CEFR levels.">
+  <title>Grammar Topics | German Learning KB</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script>if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark');}</script>
+  <style>
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    .topic-card {
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--primary);
+      border-radius: var(--radius);
+      background: #fff;
+      padding: 1rem 1.1rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow .15s, border-color .15s;
+    }
+    .topic-card:hover {
+      box-shadow: var(--shadow-md);
+      border-left-color: var(--accent);
+    }
+    .topic-card h3 { margin: 0 0 .3rem; font-size: 1.05rem; }
+    .topic-card h3 a { text-decoration: none; color: var(--primary-mid); }
+    .topic-card h3 a:hover { color: var(--accent); }
+    .topic-card p { margin: 0 0 .6rem; color: var(--ink-soft); font-size: .9rem; line-height: 1.5; }
+    .topic-meta { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; }
+    .topic-badge {
+      font-size: .72rem; font-family: var(--font-mono);
+      padding: .15rem .5rem; border-radius: 99px;
+      font-weight: 600; letter-spacing: .05em;
+    }
+    .badge-a1  { background: #dff0e0; color: #1e6b35; border: 1px solid #b2d9bb; }
+    .badge-a1a2{ background: linear-gradient(90deg,#dff0e0,#e0edff); color: #1a4a6a; border: 1px solid #aacce0; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="../index.html" class="site-title">Deutschlernen KB</a>
+    <span class="site-subtitle">Personal Grammar Reference</span>
+    <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" title="Switch to dark mode">🌙</button>
+  </header>
+  <script src="../assets/nav.js" defer></script>
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="sep" aria-hidden="true">›</span>
+    <span class="current">Grammar</span>
+  </nav>
+
+  <main class="page-body">
+
+    <header class="topic-header">
+      <h1>
+        Grammar Topics
+        <span class="german">Grammatikthemen</span>
+      </h1>
+      <span class="cefr-badge a1-a2" title="CEFR Level">A1 / A2</span>
+    </header>
+
+    <section class="key-points" aria-label="Overview">
+      <h2>⚡ How to Use This Section</h2>
+      <ul>
+        <li>Topics build on each other — start with <strong>Noun Gender</strong>, then <strong>Cases</strong>, then <strong>Article Declension</strong>.</li>
+        <li>Each page has a <strong>Key Points box</strong>, reference tables, worked examples, and exam-style exercises.</li>
+        <li>Exercises follow <strong>Goethe-Zertifikat A2</strong> and <strong>TELC A2</strong> formats — the same question types you'll see in the exam.</li>
+      </ul>
+    </section>
+
+    <section aria-label="Grammar Topics">
+      <h2>All Grammar Topics</h2>
+      <div class="topic-grid">
+
+        <article class="topic-card">
+          <h3><a href="noun-gender.html">Noun Gender</a></h3>
+          <p>Der, die, das — patterns and endings that predict gender, compound noun rules, and why gender matters for everything else.</p>
+          <div class="topic-meta">
+            <span class="topic-badge badge-a1">A1</span>
+          </div>
+        </article>
+
+        <article class="topic-card">
+          <h3><a href="cases.html">The Four German Cases</a></h3>
+          <p>Nominative, Accusative, Dative, Genitive — roles in the sentence, preposition lists, and two-way prepositions.</p>
+          <div class="topic-meta">
+            <span class="topic-badge badge-a1a2">A1 / A2</span>
+          </div>
+        </article>
+
+        <article class="topic-card">
+          <h3><a href="article-declension.html">Article Declension</a></h3>
+          <p>Definite, indefinite, negative, and possessive article forms across all four cases — the ein-word pattern.</p>
+          <div class="topic-meta">
+            <span class="topic-badge badge-a1a2">A1 / A2</span>
+          </div>
+        </article>
+
+        <article class="topic-card">
+          <h3><a href="verb-conjugation.html">Verb Conjugation</a></h3>
+          <p>Regular and strong verbs, sein/haben/werden, modal verbs, and separable verbs in the present tense.</p>
+          <div class="topic-meta">
+            <span class="topic-badge badge-a1a2">A1 / A2</span>
+          </div>
+        </article>
+
+        <article class="topic-card">
+          <h3><a href="sentence-structure.html">Sentence Structure</a></h3>
+          <p>The V2 rule, Satzklammer, TeKaMoLo adverb order, questions, and subordinate clauses.</p>
+          <div class="topic-meta">
+            <span class="topic-badge badge-a1a2">A1 / A2</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>Deutschlernen KB</span>
+    &nbsp;·&nbsp;
+    <span>Grammar Index</span>
+    &nbsp;·&nbsp;
+    <a href="../index.html">Back to Home</a>
+  </footer>
+
+</body>
+</html>

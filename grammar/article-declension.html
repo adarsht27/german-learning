@@ -7,12 +7,14 @@
   <meta name="keywords" content="German article declension, der die das, ein eine, kein keine, possessive articles, mein dein sein, German cases, Deklination, A1, A2, Artikelwörter, German grammar beginner">
   <title>Article Declension (Artikeldeklination) | German Learning KB</title>
   <link rel="stylesheet" href="../assets/styles.css">
+  <script>if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark');}</script>
 </head>
 <body>
 
   <header class="site-header">
     <a href="../index.html" class="site-title">Deutschlernen KB</a>
     <span class="site-subtitle">Personal Grammar Reference</span>
+    <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" title="Switch to dark mode">🌙</button>
   </header>
 
   <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -417,6 +419,167 @@
       </ul>
     </section>
 
+    <!-- ══════════════════════════════════
+         EXERCISES
+    ══════════════════════════════════ -->
+    <section class="exercises" aria-label="Exercises">
+      <h2>✏️ Übungen (Exercises)</h2>
+      <p class="exercises-intro">These exercises follow <strong>Goethe-Zertifikat A2</strong> and <strong>TELC Deutsch A2</strong> exam formats. Focus on the ein-word pattern — one of the most tested structures at A2 level.</p>
+
+      <!-- ── Exercise 1: Lückentext ── -->
+      <div class="exercise-block" id="ex1">
+        <div class="exercise-header">
+          <span class="exercise-num">Exercise 1</span>
+          <span class="exercise-type">Lückentext</span>
+          <span class="exercise-exam-tag">Goethe A2 · Schreiben style</span>
+        </div>
+        <p class="exercise-instruction">Fill in the correct <strong>indefinite or negative article</strong> (<em class="de">ein / eine / einen / einem / kein / keine / keinen</em>).</p>
+        <ol class="gap-fill-list">
+          <li>Das ist <input class="gap-input" data-answer="ein"> Hund. <span style="font-size:.85em;color:var(--ink-soft)">(indef. — nom. masc.)</span></li>
+          <li>Ich habe <input class="gap-input" data-answer="eine"> Katze. <span style="font-size:.85em;color:var(--ink-soft)">(indef. — acc. fem.)</span></li>
+          <li>Sie gibt <input class="gap-input" data-answer="einem"> Kind Schokolade. <span style="font-size:.85em;color:var(--ink-soft)">(indef. — dat. neut.)</span></li>
+          <li>Das ist <input class="gap-input" data-answer="kein"> Problem. <span style="font-size:.85em;color:var(--ink-soft)">(neg. — nom. neut.)</span></li>
+          <li>Er hat <input class="gap-input" data-answer="keinen"> Bruder. <span style="font-size:.85em;color:var(--ink-soft)">(neg. — acc. masc.)</span></li>
+        </ol>
+        <div class="exercise-controls">
+          <button class="btn-check" onclick="checkGapFill('ex1')">Check</button>
+          <button class="btn-reset" onclick="resetGapFill('ex1')">Reset</button>
+        </div>
+        <div class="exercise-score"></div>
+      </div>
+
+      <!-- ── Exercise 2: Sprachbausteine ── -->
+      <div class="exercise-block" id="ex2">
+        <div class="exercise-header">
+          <span class="exercise-num">Exercise 2</span>
+          <span class="exercise-type">Sprachbausteine</span>
+          <span class="exercise-exam-tag">TELC A2 · Lesen Teil 5 style</span>
+        </div>
+        <p class="exercise-instruction">Choose the correct <strong>possessive article</strong> from each dropdown.</p>
+        <p class="sb-text">
+          Ich liebe
+          <span class="sb-label">1</span><select class="sb-select" data-answer="meinen">
+            <option value="">—</option>
+            <option value="mein">mein</option>
+            <option value="meinen">meinen</option>
+            <option value="meinem">meinem</option>
+          </select>
+          Vater. Er fährt mit
+          <span class="sb-label">2</span><select class="sb-select" data-answer="seinem">
+            <option value="">—</option>
+            <option value="sein">sein</option>
+            <option value="seinem">seinem</option>
+            <option value="seiner">seiner</option>
+          </select>
+          Auto zur Arbeit.
+          <span class="sb-label">3</span><select class="sb-select" data-answer="kein">
+            <option value="">—</option>
+            <option value="Kein">Kein</option>
+            <option value="Keine">Keine</option>
+            <option value="Keinen">Keinen</option>
+          </select>
+          Student hat das vergessen.
+        </p>
+        <p style="font-size:.83rem;color:var(--ink-soft);margin-top:.4rem">Hint: 1 = mein- + acc. masc. · 2 = sein- + dat. neut. (after <em>mit</em>) · 3 = neg. + nom. masc. (<em>Student</em> is masculine)</p>
+        <div class="exercise-controls">
+          <button class="btn-check" onclick="checkSB('ex2')">Check</button>
+          <button class="btn-reset" onclick="resetSB('ex2')">Reset</button>
+        </div>
+        <div class="exercise-score"></div>
+      </div>
+
+      <!-- ── Exercise 3: Multiple Choice ── -->
+      <div class="exercise-block" id="ex3">
+        <div class="exercise-header">
+          <span class="exercise-num">Exercise 3</span>
+          <span class="exercise-type">Multiple Choice</span>
+          <span class="exercise-exam-tag">Goethe A2 · Grammatik style</span>
+        </div>
+        <p class="exercise-instruction">Choose <em class="de">kein/keine</em> or <em class="de">nicht</em> to complete each sentence correctly.</p>
+        <ul class="mc-list">
+          <li>
+            <p class="mc-sentence"><em class="de">Ich habe leider ___ Zeit.</em></p>
+            <div class="mc-options">
+              <button class="mc-btn" data-correct="true"  data-hint="Correct! 'Zeit' is a noun — use 'keine' (fem. acc.)." onclick="selectMC(this,'ex3',0)">keine</button>
+              <button class="mc-btn" data-correct="false" data-hint="'Nicht' negates verbs or adjectives, not nouns directly." onclick="selectMC(this,'ex3',0)">nicht</button>
+            </div>
+            <div class="mc-feedback"></div>
+          </li>
+          <li>
+            <p class="mc-sentence"><em class="de">Er kommt ___ heute.</em></p>
+            <div class="mc-options">
+              <button class="mc-btn" data-correct="false" data-hint="'kein' negates nouns. 'heute' is an adverb — use 'nicht'." onclick="selectMC(this,'ex3',1)">kein</button>
+              <button class="mc-btn" data-correct="true"  data-hint="Correct! 'nicht' negates the time adverb 'heute'." onclick="selectMC(this,'ex3',1)">nicht</button>
+            </div>
+            <div class="mc-feedback"></div>
+          </li>
+          <li>
+            <p class="mc-sentence"><em class="de">Das ist ___ Kaffee, das ist Tee.</em></p>
+            <div class="mc-options">
+              <button class="mc-btn" data-correct="true"  data-hint="Correct! 'Kaffee' is a noun being negated — use 'kein' (nom. masc.)." onclick="selectMC(this,'ex3',2)">kein</button>
+              <button class="mc-btn" data-correct="false" data-hint="'Nicht' would work before an adjective, but here we negate the noun itself." onclick="selectMC(this,'ex3',2)">nicht</button>
+            </div>
+            <div class="mc-feedback"></div>
+          </li>
+          <li>
+            <p class="mc-sentence"><em class="de">Sie schläft ___ gut.</em></p>
+            <div class="mc-options">
+              <button class="mc-btn" data-correct="false" data-hint="'kein' negates nouns. 'gut' is an adverb." onclick="selectMC(this,'ex3',3)">kein</button>
+              <button class="mc-btn" data-correct="true"  data-hint="Correct! 'nicht' negates the adverb 'gut'." onclick="selectMC(this,'ex3',3)">nicht</button>
+            </div>
+            <div class="mc-feedback"></div>
+          </li>
+        </ul>
+        <div class="exercise-controls">
+          <button class="btn-check" onclick="checkMC('ex3')">Check</button>
+          <button class="btn-reset" onclick="resetMC('ex3')">Reset</button>
+        </div>
+        <div class="exercise-score"></div>
+      </div>
+
+      <!-- ── Exercise 4: Fehlerkorrektur ── -->
+      <div class="exercise-block" id="ex4">
+        <div class="exercise-header">
+          <span class="exercise-num">Exercise 4</span>
+          <span class="exercise-type">Fehlerkorrektur</span>
+          <span class="exercise-exam-tag">TELC A2 · Grammatik style</span>
+        </div>
+        <p class="exercise-instruction">Each sentence has a <strong>wrong article form</strong> (in red). Type the correct form.</p>
+        <ul class="errcor-list">
+          <li>
+            <span class="errcor-sentence">Das ist <span class="wrong-art">mein</span> Schwester.</span>
+            <span class="errcor-label">Correct →</span>
+            <input class="errcor-input" data-answer="meine" placeholder="?">
+            <span class="item-feedback"></span>
+          </li>
+          <li>
+            <span class="errcor-sentence">Er liebt <span class="wrong-art">sein</span> Vater sehr.</span>
+            <span class="errcor-label">Correct →</span>
+            <input class="errcor-input" data-answer="seinen" placeholder="?">
+            <span class="item-feedback"></span>
+          </li>
+          <li>
+            <span class="errcor-sentence">Sie fährt mit <span class="wrong-art">ihr</span> Mann in Urlaub.</span>
+            <span class="errcor-label">Correct →</span>
+            <input class="errcor-input" data-answer="ihrem" placeholder="?">
+            <span class="item-feedback"></span>
+          </li>
+          <li>
+            <span class="errcor-sentence">Das ist <span class="wrong-art">seine</span> Buch, nicht meins.</span>
+            <span class="errcor-label">Correct →</span>
+            <input class="errcor-input" data-answer="sein" placeholder="?">
+            <span class="item-feedback"></span>
+          </li>
+        </ul>
+        <div class="exercise-controls">
+          <button class="btn-check" onclick="checkErrCor('ex4')">Check</button>
+          <button class="btn-reset" onclick="resetErrCor('ex4')">Reset</button>
+        </div>
+        <div class="exercise-score"></div>
+      </div>
+
+    </section><!-- /exercises -->
+
     <a href="#" class="back-to-top" aria-label="Back to top">↑ Back to top</a>
 
   </main>
@@ -432,6 +595,7 @@
   </footer>
 
   <script src="../assets/nav.js" defer></script>
+  <script src="../assets/exercises.js" defer></script>
 
 </body>
 </html>
