@@ -1,10 +1,90 @@
-{
-  "slug": "cases",
-  "file": "grammar/cases.html",
-  "title": "The Four German Cases",
-  "cefr": ["A1", "A2"],
-  "category": "grammar",
-  "tags": ["cases", "nominative", "accusative", "dative", "genitive", "articles", "prepositions"],
-  "connected": ["article-declension", "noun-gender", "verb-conjugation", "sentence-structure", "adjective-declension"],
-  "updated": "2026-05-30"
-}
+[
+  {
+    "slug": "cases",
+    "file": "grammar/cases.html",
+    "title": "The Four German Cases",
+    "cefr": ["A1", "A2"],
+    "category": "grammar",
+    "tags": [
+      "cases", "nominative", "accusative", "dative", "genitive",
+      "articles", "prepositions", "Kasus", "Fälle"
+    ],
+    "connected": [
+      "article-declension", "noun-gender",
+      "verb-conjugation", "sentence-structure", "adjective-declension"
+    ],
+    "updated": "2026-05-30"
+  },
+  {
+    "slug": "noun-gender",
+    "file": "grammar/noun-gender.html",
+    "title": "Noun Gender (Das Genus)",
+    "cefr": ["A1"],
+    "category": "grammar",
+    "tags": [
+      "gender", "der", "die", "das", "Genus",
+      "masculine", "feminine", "neuter",
+      "noun endings", "diminutives", "compound nouns"
+    ],
+    "connected": [
+      "cases", "article-declension", "adjective-declension",
+      "verb-conjugation", "sentence-structure"
+    ],
+    "updated": "2026-05-31"
+  },
+  {
+    "slug": "article-declension",
+    "file": "grammar/article-declension.html",
+    "title": "Article Declension (Die Artikeldeklination)",
+    "cefr": ["A1", "A2"],
+    "category": "grammar",
+    "tags": [
+      "articles", "declension", "definite", "indefinite",
+      "kein", "keine", "ein", "eine",
+      "nominative", "accusative", "dative", "genitive",
+      "der die das", "Deklination"
+    ],
+    "connected": [
+      "cases", "noun-gender", "adjective-declension",
+      "verb-conjugation", "sentence-structure"
+    ],
+    "updated": "2026-05-31"
+  },
+  {
+    "slug": "verb-conjugation",
+    "file": "grammar/verb-conjugation.html",
+    "title": "Verb Conjugation (Die Konjugation)",
+    "cefr": ["A1", "A2"],
+    "category": "grammar",
+    "tags": [
+      "conjugation", "Präsens", "present tense",
+      "stem vowel change", "sein", "haben", "werden",
+      "modal verbs", "separable verbs", "Trennbare Verben",
+      "Perfekt", "Konjugation"
+    ],
+    "connected": [
+      "sentence-structure", "cases",
+      "noun-gender", "article-declension"
+    ],
+    "updated": "2026-05-31"
+  },
+  {
+    "slug": "sentence-structure",
+    "file": "grammar/sentence-structure.html",
+    "title": "Sentence Structure (Die Satzstellung)",
+    "cefr": ["A1", "A2"],
+    "category": "grammar",
+    "tags": [
+      "V2 rule", "word order", "Satzstellung", "inversion",
+      "questions", "W-Fragen", "Ja-Nein-Fragen",
+      "TeKaMoLo", "subordinate clause", "Nebensatz",
+      "weil", "dass", "wenn", "ob", "obwohl",
+      "coordinating conjunctions", "und", "aber", "oder", "denn"
+    ],
+    "connected": [
+      "verb-conjugation", "cases",
+      "noun-gender", "article-declension"
+    ],
+    "updated": "2026-05-31"
+  }
+]

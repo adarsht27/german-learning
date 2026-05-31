@@ -537,3 +537,174 @@ em.de {
   .site-header { padding: .75rem 1.25rem; }
   .breadcrumb { padding: .6rem 1.25rem; }
 }
+
+
+/* ── KEY-POINTS RENDERING FIX ──────────────────────────────────
+   The original .key-points li rule has display:flex or display:grid
+   which pulls <strong> and <em> out of the sentence's inline flow,
+   rendering bold words in a detached column. These rules override
+   it site-wide so every topic page is fixed at once.            */
+
+.key-points ul         { margin: 0; padding: 0; list-style: none; }
+.key-points ul li      { display: block !important;
+                          position: relative;
+                          padding-left: 1.65rem;
+                          margin-bottom: .55rem;
+                          line-height: 1.68; }
+.key-points ul li::before { content: "→";
+                              position: absolute; left: 0;
+                              color: var(--accent, #2a6ab1); }
+.key-points ul li strong,
+.key-points ul li em   { display: inline !important; }
+
+
+/* ── EXERCISE SECTION ───────────────────────────────────────────
+   Shared styles for the ✏️ Übungen section present on every
+   topic page.  Four exercise types:
+     1. Lückentext        (gap-fill text inputs)
+     2. Sprachbausteine   (drop-down selects in a coherent text)
+     3. Multiple Choice   (button-group selection)
+     4. Fehlerkorrektur   (error-correction text inputs)
+   ────────────────────────────────────────────────────────────── */
+
+.exercises {
+  margin-top: 2.5rem;
+  border-top: 2px solid var(--border-light, #dde3ec);
+  padding-top: 2rem;
+}
+.exercises > h2   { font-size: 1.25rem; margin-bottom: .2rem; }
+.exercises-intro  { font-size: .9rem; color: var(--ink-soft, #5a6a82);
+                     margin-bottom: 1.75rem; line-height: 1.55; }
+
+/* Block container */
+.exercise-block {
+  background: var(--bg-card, #fff);
+  border: 1px solid var(--border-light, #dde3ec);
+  border-radius: 10px;
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1.75rem;
+}
+
+/* Header row (number · type badge · exam tag) */
+.exercise-header {
+  display: flex; align-items: center; gap: .7rem;
+  flex-wrap: wrap; margin-bottom: .8rem;
+}
+.exercise-num      { font-weight: 700; font-size: .95rem; }
+.exercise-type     { font-size: .8rem; font-weight: 600;
+                      color: var(--accent, #2a6ab1);
+                      background: rgba(42,106,177,.1);
+                      padding: .15rem .55rem; border-radius: 4px; }
+.exercise-exam-tag { font-size: .77rem; color: var(--ink-soft, #5a6a82);
+                      border: 1px solid var(--border-light, #dde3ec);
+                      padding: .15rem .5rem; border-radius: 4px; }
+.exercise-instruction {
+  font-size: .92rem; margin-bottom: 1rem; line-height: 1.55;
+}
+
+/* ─ 1. Gap fill ─────────────────────────────────────────────── */
+.gap-fill-list    { padding-left: 1.25rem; margin: 0 0 1rem; }
+.gap-fill-list li { margin-bottom: .5rem; font-size: .93rem;
+                     line-height: 1.7; display: flex;
+                     align-items: baseline; gap: .4rem; flex-wrap: wrap; }
+.gap-input        { width: 3.6rem; padding: .18rem .4rem;
+                     border: 1.5px solid var(--border, #c4ccd8);
+                     border-radius: 4px; font-size: .9rem;
+                     font-family: inherit; text-align: center;
+                     transition: border-color .15s; }
+.gap-input:focus  { outline: none; border-color: var(--accent, #2a6ab1); }
+.gap-input.correct   { border-color: #16a34a; background: #f0fdf4; color: #15803d; }
+.gap-input.incorrect { border-color: #dc2626; background: #fef2f2; color: #b91c1c; }
+
+/* ─ 2. Sprachbausteine ──────────────────────────────────────── */
+.sb-text   { font-size: .93rem; line-height: 2.1;
+              background: var(--bg-soft, #f4f6f9);
+              border-radius: 6px; padding: .9rem 1.1rem;
+              margin-bottom: 1rem; }
+.sb-select { padding: .14rem .35rem;
+              border: 1.5px solid var(--border, #c4ccd8);
+              border-radius: 4px; font-family: inherit;
+              font-size: .88rem; background: #fff;
+              cursor: pointer; vertical-align: baseline; }
+.sb-select.correct   { border-color: #16a34a; background: #f0fdf4; color: #15803d; }
+.sb-select.incorrect { border-color: #dc2626; background: #fef2f2; color: #b91c1c; }
+.sb-label  { font-size: .76rem; font-weight: 700;
+              color: var(--accent, #2a6ab1);
+              vertical-align: super; margin-right: .1rem; }
+
+/* ─ 3. Multiple choice ──────────────────────────────────────── */
+.mc-list        { list-style: none; padding: 0; margin: 0 0 1rem; }
+.mc-list > li   { margin-bottom: 1rem; font-size: .93rem; }
+.mc-sentence    { margin-bottom: .35rem; line-height: 1.55; }
+.mc-options     { display: flex; gap: .45rem; flex-wrap: wrap; }
+.mc-btn         { padding: .3rem .85rem;
+                   border: 1.5px solid var(--border, #c4ccd8);
+                   border-radius: 6px;
+                   background: var(--bg-soft, #f4f6f9);
+                   font-family: inherit; font-size: .88rem;
+                   cursor: pointer;
+                   transition: background .15s, border-color .15s; }
+.mc-btn:hover:not(:disabled)
+                { border-color: var(--accent, #2a6ab1);
+                   background: rgba(42,106,177,.07); }
+.mc-btn.selected{ border-color: var(--accent, #2a6ab1);
+                   background: rgba(42,106,177,.12); font-weight: 600; }
+.mc-btn.correct { border-color: #16a34a; background: #f0fdf4;
+                   color: #15803d; font-weight: 700; }
+.mc-btn.incorrect
+                { border-color: #dc2626; background: #fef2f2; color: #b91c1c; }
+.mc-btn.reveal-correct
+                { border-color: #16a34a; background: #f0fdf4;
+                   color: #15803d; font-weight: 700; }
+.mc-feedback    { font-size: .82rem; font-weight: 600;
+                   margin-top: .3rem; min-height: 1.1rem; }
+.mc-feedback.correct  { color: #16a34a; }
+.mc-feedback.incorrect{ color: #dc2626; }
+
+/* ─ 4. Fehlerkorrektur ──────────────────────────────────────── */
+.errcor-list      { list-style: none; padding: 0; margin: 0 0 1rem; }
+.errcor-list > li { display: flex; align-items: baseline;
+                     gap: .55rem; flex-wrap: wrap;
+                     margin-bottom: .7rem; font-size: .93rem; line-height: 1.6; }
+.errcor-sentence  { flex: 1 1 220px; }
+.wrong-art        { color: #dc2626;
+                     text-decoration: underline wavy #dc2626;
+                     font-weight: 600; }
+.errcor-label     { font-size: .8rem; color: var(--ink-soft, #5a6a82);
+                     white-space: nowrap; }
+.errcor-input     { width: 3.6rem; padding: .18rem .4rem;
+                     border: 1.5px solid var(--border, #c4ccd8);
+                     border-radius: 4px; font-size: .9rem;
+                     font-family: inherit; text-align: center; }
+.errcor-input.correct   { border-color: #16a34a; background: #f0fdf4; color: #15803d; }
+.errcor-input.incorrect { border-color: #dc2626; background: #fef2f2; color: #b91c1c; }
+
+/* ─ Shared: item feedback token + controls + score ──────────── */
+.item-feedback          { font-size: .82rem; font-weight: 600; min-width: 3.5rem; }
+.item-feedback.correct  { color: #16a34a; }
+.item-feedback.incorrect{ color: #dc2626; }
+
+.exercise-controls { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .75rem; }
+.btn-check  { padding: .45rem 1.1rem;
+               background: var(--accent, #2a6ab1); color: #fff;
+               border: none; border-radius: 6px;
+               font-family: inherit; font-size: .88rem; font-weight: 600;
+               cursor: pointer; }
+.btn-check:hover { opacity: .86; }
+.btn-reset  { padding: .45rem 1rem; background: transparent;
+               color: var(--ink-soft, #5a6a82);
+               border: 1.5px solid var(--border, #c4ccd8);
+               border-radius: 6px; font-family: inherit;
+               font-size: .88rem; cursor: pointer; }
+.btn-reset:hover { border-color: var(--ink-soft, #5a6a82); }
+.exercise-score     { margin-top: .65rem; font-size: .88rem;
+                       font-weight: 600; min-height: 1.2rem; }
+.score-pass    { color: #16a34a; }
+.score-partial { color: #d97706; }
+.score-fail    { color: #dc2626; }
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .mc-options           { flex-direction: column; }
+  .errcor-list > li     { flex-direction: column; gap: .3rem; }
+}
