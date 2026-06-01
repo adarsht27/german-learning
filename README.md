@@ -1,6 +1,6 @@
 # Deutschlernen KB — Personal German Learning Knowledge Base
 
-**Live site:** [adarsh27.github.io/german-learning](https://adarsh27.github.io/german-learning)
+**Live site:** [adarsht27.github.io/german-learning](https://adarsht27.github.io/german-learning)
 
 A self-built reference site for learning German from A1 to B1, built alongside learnigns from Lingoda group classes. The idea was simple: instead of scattering notes across PDFs, Notion pages, and Anki decks that never talk to each other, build one place where everything connects.
 
