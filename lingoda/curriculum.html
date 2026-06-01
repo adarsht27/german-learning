@@ -222,7 +222,7 @@
     <!-- Progress bar -->
     <div class="progress-wrap" id="progressWrap">
       <div class="progress-label">
-        <strong id="progressText">0 / 23 units complete</strong>
+        <strong id="progressText">0 / 24 units complete</strong>
         <span id="progressPct">0%</span>
       </div>
       <div class="progress-track">
@@ -230,7 +230,7 @@
       </div>
       <div class="progress-sub">
         <span>🟢 A2.1: <strong id="doneA21">0</strong>/12</span>
-        <span>🔵 A2.2: <strong id="doneA22">0</strong>/11</span>
+        <span>🔵 A2.2: <strong id="doneA22">0</strong>/12</span>
         <span>◑ In Progress: <strong id="countIP">0</strong></span>
       </div>
     </div>
@@ -245,7 +245,7 @@
     <!-- A2.2 -->
     <div class="semester-heading">
       <span class="semester-badge badge-a22">A2.2</span>
-      <h2 style="margin:0;padding:0;border:none;font-size:1.15rem">Semester 2 — 11 Units</h2>
+      <h2 style="margin:0;padding:0;border:none;font-size:1.15rem">Semester 2 — 12 Units</h2>
     </div>
     <div class="unit-grid" id="grid-a22"></div>
 
@@ -307,6 +307,8 @@
       vocabPage:'', grammarPage:'' },
     { id:'207', sem:'A2.2', vocab:'Die Ausbildung / Lebenslauf',       grammar:'Konjunktiv II (Einführung)',
       vocabPage:'', grammarPage:'' },
+    { id:'208', sem:'A2.2', vocab:'Meine Biografie / Werdegang',       grammar:'Wiederholung Akkusativ und Dativ',
+      vocabPage:'', grammarPage:'../grammar/cases.html' },
     { id:'209', sem:'A2.2', vocab:'Technologie und Medien',            grammar:'Indefinitpronomen',
       vocabPage:'', grammarPage:'' },
     { id:'210', sem:'A2.2', vocab:'Medien / Nachrichten',              grammar:'Der Genitiv',
@@ -367,8 +369,9 @@
     g22.innerHTML = html22;
 
     var done  = done21 + done22;
+    var total = UNITS.length;
     var pct   = Math.round((done / total) * 100);
-    document.getElementById('progressText').textContent = done+' / '+total+' units complete';
+    document.getElementById('progressText').textContent = done+' / '+UNITS.length+' units complete';
     document.getElementById('progressPct').textContent  = pct+'%';
     document.getElementById('progressFill').style.width = pct+'%';
     document.getElementById('doneA21').textContent = done21;
