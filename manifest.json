@@ -98,6 +98,23 @@
     "updated": "2026-06-01"
   },
   {
+    "slug": "adjective-suffixes",
+    "file": "grammar/adjective-suffixes.html",
+    "title": "German Adjective Suffixes (Adjektivsuffixe)",
+    "cefr": ["A2", "B1"],
+    "category": "grammar",
+    "tags": [
+      "adjective suffixes", "Wortbildung", "word formation", "-isch", "-bar",
+      "-haft", "-sam", "-fest", "-voll", "-reich", "-frei", "-los", "-leer",
+      "Adjektive", "Suffixe", "A2", "B1"
+    ],
+    "connected": [
+      "noun-gender", "article-declension", "cases",
+      "verb-conjugation", "sentence-structure"
+    ],
+    "updated": "2026-06-07"
+  },
+  {
     "slug": "freundschaften-beziehungen",
     "file": "vocabulary/freundschaften-beziehungen.html",
     "title": "Freundschaften und Beziehungen (Unit 101)",
