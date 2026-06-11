@@ -115,6 +115,16 @@
     "updated": "2026-06-07"
   },
   {
+    "slug": "gehts-dir-gut",
+    "file": "vocabulary/gehts-dir-gut.html",
+    "title": "Gefühle und Emotionen (Unit 102)",
+    "cefr": ["A2"],
+    "category": "vocabulary",
+    "tags": ["Gefühle", "Emotionen", "feelings", "emotions", "glücklich", "traurig", "wütend", "Unit 102", "A2.1", "Anki", "Wortschatz"],
+    "connected": ["cases", "sentence-structure"],
+    "updated": "2026-06-11"
+  },
+  {
     "slug": "freundschaften-beziehungen",
     "file": "vocabulary/freundschaften-beziehungen.html",
     "title": "Freundschaften und Beziehungen (Unit 101)",
