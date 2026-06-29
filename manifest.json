@@ -115,6 +115,16 @@
     "updated": "2026-06-07"
   },
   {
+    "slug": "die-arbeitswelt",
+    "file": "vocabulary/die-arbeitswelt.html",
+    "title": "Die Arbeitswelt (Unit 103)",
+    "cefr": ["A2"],
+    "category": "vocabulary",
+    "tags": ["Arbeit", "Büro", "Gehalt", "Stelle", "Überstunden", "Feierabend", "Firma", "workplace", "Unit 103", "A2.1", "Anki", "Wortschatz"],
+    "connected": ["cases", "verb-conjugation"],
+    "updated": "2026-06-11"
+  },
+  {
     "slug": "gehts-dir-gut",
     "file": "vocabulary/gehts-dir-gut.html",
     "title": "Gefühle und Emotionen (Unit 102)",
